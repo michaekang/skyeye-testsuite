@@ -1,0 +1,12 @@
+                       SkyEye test report
+Date : Sun Jun  8 18:07:19 CST 2008
+               
+Case 1: ./exec_skyeye.sh csb337 ...PASSED
+
+Case 2: ./exec_skyeye.sh edb7312 ...PASSED
+
+Case 3: ./exec_skyeye.sh bf533 ...PASSED
+
+Case 4: ./exec_skyeye.sh csb360 ...PASSED
+
+Total 4 , failed 0 , pass 4 

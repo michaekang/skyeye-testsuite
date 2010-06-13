@@ -1,0 +1,10 @@
+Test case for S3C3410X on SkyEye
+
+- Required:
+	SkyEye >= v1.2.3
+
+- How to run it
+	$ skyeye -b
+	or
+	$ skyeye -e linux
+

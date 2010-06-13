@@ -1,0 +1,25 @@
+                       SkyEye test report
+Date : Sun Jun  8 17:32:05 CST 2008
+               
+Env : Linux server 2.6.22.5-31-default #1 SMP 2007/09/21 22:29:00 UTC x86_64 x86_64 x86_64 GNU/Linux
+Case 1: ./exec_skyeye.sh ep7312/2.6.x ...PASSED
+
+Case 2: ./exec_skyeye.sh ep9312/2.6.x ...PASSED
+
+Case 3: ./exec_skyeye.sh at91rm9200/2.6.x ...PASSED
+
+Case 4: ./exec_skyeye.sh s3c2410/2.4.18 ...PASSED
+
+Case 5: ./exec_skyeye.sh s3c2410/s3c2410x-2.6.14 ...PASSED
+
+Case 6: ./exec_skyeye.sh pxa/2.6.x ...PASSED
+
+Case 7: ./exec_skyeye.sh pxa/pxa27x ...PASSED
+
+Case 8: ./exec_skyeye.sh cs89712/ ...PASSED
+
+Case 9: ./exec_skyeye.sh mpc8560/ ...PASSED
+
+Case 10: ./exec_skyeye.sh au1100/ ...PASSED
+
+Total 10 , failed 0 , pass 10 

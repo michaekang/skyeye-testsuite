@@ -1,0 +1,9 @@
+                       SkyEye test report
+Date : Fri Nov  9 23:39:02 CST 2007
+               
+Case 1: ./exec_skyeye.sh at91/uclinux_rtl8019/ ...PASSED
+
+Case 2: ./exec_skyeye.sh at91/uclinux_cs8900a ...PASSED
+
+Case 5: ./exec_skyeye.sh bf533/ ...PASSED
+

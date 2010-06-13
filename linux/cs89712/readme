@@ -1,0 +1,6 @@
+in this directory, run below commands
+$skyeye
+(SkyEye)file vmlinux.working
+(SkyEye)target sim
+(SkyEye)load
+(SkyEye)run

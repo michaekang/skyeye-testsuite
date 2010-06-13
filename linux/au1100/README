@@ -1,0 +1,17 @@
+	Compile au1100 testsuite from scrach
+1. Now BSP of au1100 in linux kernel source is incomplete, so you need to get source from some company.
+2. You should use mipsel toolchain to compile the BSP of au1100 with linux kernel.That should not be the fault of SkyEye. SkyEye can support big engian and little endian in mips simulation.
+3. You need to workaround in your BSP of linux kernel due to some bugs in mips simulation of SkyEye as the following:
+diff -Nur linux-2.6.22/mm/mmap.c linux-2.6.22_modified/mm/mmap.c
+--- linux-2.6.22/mm/mmap.c      2007-07-09 07:32:17.000000000 +0800
++++ linux-2.6.22_modified/mm/mmap.c     2007-10-20 10:00:13.000000000 +0800
+@@ -1960,6 +1960,10 @@
+                mm->locked_vm += len >> PAGE_SHIFT;
+                make_pages_present(addr, addr + len);
+        }
++
++       /* workaround for SkyEye */
++       make_pages_present(addr, addr + len);
++
+        return addr;
+ }

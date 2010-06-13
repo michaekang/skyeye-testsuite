@@ -1,0 +1,19 @@
+                       SkyEye test report
+Date : Fri May  2 00:27:00 CST 2008
+               
+Case 1: ./exec_skyeye.sh ep7312/2.6.x ...PASSED
+
+Case 2: ./exec_skyeye.sh ep7312/ep7312_with_framebuffer_touchscreen_minigui ...PASSED
+
+Case 3: ./exec_skyeye.sh ep9312/2.6.x ...PASSED
+
+Case 4: ./exec_skyeye.sh s3c2410/2.4.18 ...PASSED
+
+Case 5: ./exec_skyeye.sh pxa/2.6.x ...PASSED
+
+Case 6: ./exec_skyeye.sh pxa/with_flash_net_lcd ...PASSED
+
+Case 7: ./exec_skyeye.sh pxa/pxa27x ...PASSED
+
+Case 8: ./exec_skyeye.sh cs89712/ ...PASSED
+

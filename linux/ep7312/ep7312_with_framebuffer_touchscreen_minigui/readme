@@ -1,0 +1,19 @@
+
+#./skyeye076 vmlinux-fb-ts
+(skyeye)tar s
+(skyeye)load
+(skyeye)r
+.....
+....
+\>/bin/same/same
+or
+\>/bin/housekeeper/housekeeper
+
+Notice:
+(1)The MiniGUI application could not exit normally, please press Ctrl+C to quit.
+   Because we don't implement the mouse " right key" function, minigui could not call 
+   the pop-up menu to exit. 
+(2)The MiniGUI windows could not be drag and drop.
+(3)The MiniGUI version we use is 1.3.0 , and configued to minigui-thread. 
+(4)The speed MiniGUI running on SkyEye is slow. We will optimize it for high speed.
+

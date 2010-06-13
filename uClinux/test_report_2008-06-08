@@ -1,0 +1,22 @@
+                       SkyEye test report
+Date : Sun Jun  8 17:36:07 CST 2008
+               
+Case 1: ./exec_skyeye.sh at91/uclinux_rtl8019/ ...PASSED
+
+Case 2: ./exec_skyeye.sh at91/uclinux_cs8900a ...PASSED
+
+Case 3: ./exec_skyeye.sh s3c4510/ ...FAILED
+
+Case 4: ./exec_skyeye.sh bf533/ ...PASSED
+
+Case 5: ./exec_skyeye.sh coldfire-5249/ ...PASSED
+
+Case 6: ./exec_skyeye.sh coldfire-5272/ ...FAILED
+
+Case 7: ./exec_skyeye.sh s3c44b0x/ ...PASSED
+
+Case 8: ./exec_skyeye.sh lpc2294/ ...FAILED
+
+Case 9: ./exec_skyeye.sh s3c3410x/ ...PASSED
+
+Total 9 , failed 3 , pass 6 

@@ -1,0 +1,10 @@
+autotest Version 0.2
+Author: Michael.Kang
+Description : AutoTest all the rtems testcase in SkyEye testsuite.
+Usage:
+1 get skyeye source, compile it and get skyeye binary code.
+2 place skyeye binary code into testsuite top directoy
+3 cd its top directory, run ./auto_test. A test report will be generated.
+
+Note:You can select testcases by modify path variable in auto_test script.
+

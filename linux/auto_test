@@ -1,0 +1,60 @@
+#!/usr/bin/expect
+#
+# Author: Michael Kang(blackfin.kang@gmail.com)
+# Purpose: autoTest all the testcases in the skyeye testsuite.
+#
+
+set TITLE "SkyEye Auto Test"
+
+
+puts "*********************************\r"
+puts "Start $TITLE\r"
+puts "*********************************\r"
+
+#set skyeye_penv(PWD)
+set skyeye_dir [lindex $argv 0]
+set report_filename [lindex $argv 1]
+
+# add directory of all the test case
+set  path { ep7312/2.6.x ep9312/2.6.x at91rm9200/2.6.x  s3c2410/2.4.18 s3c2410/s3c2410x-2.6.14 pxa/2.6.x pxa/pxa27x cs89712/ mpc8560/ mpc8572/ au1100/ }
+
+set timeout 300
+set case_num 1
+set failed_num 0
+set pass_num 0
+set report_date [exec date +%F_%k_%M]
+# open a file as report
+set file [open $report_filename a]
+puts $file "                       SkyEye test report"
+puts $file "Date : [exec date]"
+puts $file "               "
+puts $file "Env : [exec uname -a ]"
+
+#set  skyeye_sh { ./exec_skyeye.sh  ./exec_skyeye_dbct.sh }
+set  skyeye_sh { ./exec_skyeye.sh }
+
+foreach skyeye_element $skyeye_sh {
+  foreach element $path {
+	spawn $skyeye_element $element $skyeye_dir
+	expect {
+	# we think when appear "command shell"  , testcase is passed
+		"shell" {
+			puts $file "Case $case_num: $skyeye_element $element ...PASSED\n"
+			incr pass_num
+		}
+         	timeout {
+			puts $file "Case $case_num: $skyeye_element $element ...FAILED\n"
+			incr failed_num
+         	}
+       	}
+	incr case_num
+	system "killall skyeye"
+  }
+}
+
+set total_num [expr $case_num-1]
+puts "                                                                        \r"
+puts  "Total $total_num , failed $failed_num , pass $pass_num "
+puts "\r$TITLE ............\r"
+# write to a txt file as report
+puts $file "Total $total_num , failed $failed_num , pass $pass_num "
