@@ -47,7 +47,7 @@ foreach skyeye_element $skyeye_sh {
          	}
        	}
 	incr case_num
-	system "killall skyeye"
+	system "killall lt-skyeye"
   }
 }
 
