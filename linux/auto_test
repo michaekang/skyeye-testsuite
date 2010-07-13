@@ -16,7 +16,7 @@ set skyeye_dir [lindex $argv 0]
 set report_filename [lindex $argv 1]
 
 # add directory of all the test case
-set  path { ep7312/2.6.x ep9312/2.6.x at91rm9200/2.6.x  s3c2410/2.4.18 s3c2410/s3c2410x-2.6.14 pxa/2.6.x pxa/pxa27x cs89712/ mpc8560/ mpc8572/ au1100/ mpc8641d/ s3c2440/2.6.14/ strongarm/ s3c2440/2.6.30.5/}
+set  path { ep7312/2.6.x ep9312/2.6.x at91rm9200/2.6.x  s3c2410/2.4.18 s3c2410/s3c2410x-2.6.14 pxa/2.6.x pxa/pxa27x cs89712/ mpc8560/ mpc8572/ mpc8641d/ s3c2440/2.6.14/ strongarm/ s3c2440/2.6.30.5/}
 
 set timeout 300
 set case_num 1
