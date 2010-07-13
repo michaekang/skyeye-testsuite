@@ -16,8 +16,7 @@ set skyeye_dir [lindex $argv 0]
 set report_filename [lindex $argv 1]
 
 # add directory of all the test case
-set  path { csb337 edb7312 bf533 csb360 csb350 leon2
-}
+set  path { csb337 edb7312 }
 set timeout 300
 set case_num 1
 set failed_num 0
