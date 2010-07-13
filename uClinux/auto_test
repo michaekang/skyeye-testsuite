@@ -15,7 +15,7 @@ puts "*********************************\r"
 set skyeye_dir [lindex $argv 0]
 set report_filename [lindex $argv 1]
 # add directory of all the test case
-set  path { at91/uclinux_rtl8019/ at91/uclinux_cs8900a s3c4510/ bf533/ coldfire-5249/ coldfire-5272/ lpc2294/ s3c3410x/}
+set  path { at91/uclinux_rtl8019/ at91/uclinux_cs8900a}
 #set  path { at91/uclinux_rtl8019/ at91/uclinux_cs8900a bf533/ coldfire-5249/ coldfire-5272/ s3c44b0x/ lpc2294/ s3c3410x/}
 #set  path {at91/at91_with_framebuffer_touchscreen at91/uclinux_cs8900a bf533/ coldfire-5249/ coldfire-5272/ s3c44b0x/ lpc2294/ s3c3410x/}
 
