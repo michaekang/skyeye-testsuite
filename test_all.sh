@@ -1,29 +1,36 @@
 #!/bin/sh
+# This shell is for testing skyeye-testsuite automatically.
 
+#If you have not compile skyeye, you should set SKYEYE_SOURCE.
+SKYEYE_SOURCE="Delete me and fill your absolute path of skeye source here if you need."
+#If you configure skyeye with "--prefix" option, you should set PREFIX_DIR.
+PREFIX_DIR="Delete me and fill your absolute path of \"--prefix\" dir here if you need."
+
+#Initialize some variables
 TOP_DIR=`pwd`
 SKYEYE_DIR_NAME="skyeye_dir"
-SKYEYE_BRANCH_NAME="../source"
-SKYEYE_DIR=${TOP_DIR}/${SKYEYE_DIR_NAME}
-TIMESTAMP=`date +%F_%k_%M`
+SKYEYE_OPT="/opt/skyeye"
+SKYEYE_DIR="${TOP_DIR}/${SKYEYE_DIR_NAME}/bin"
+TIMESTAMP=`date +%F_%0k_%0M`
 test_report="${TOP_DIR}/test_report_${TIMESTAMP}"
 
-# if here exists skyeye branch, we will use skyeye branch to test our testsuite
-if test -e $SKYEYE_BRANCH_NAME ; then
-	rm -f -r $SKYEYE_DIR 
-	ln -s $SKYEYE_BRANCH_NAME $SKYEYE_DIR
-fi
-
-if test -e $SKYEYE_DIR ; then
-	if test -e $SKYEYE_DIR/skyeye ; then
-		echo "We will use $SKYEYE_DIR/skyeye to run testsuite."
-	else
-		cd $SKYEYE_DIR && ./configure;make lib;make;sudo make install_lib;sudo make install
-		cd $TOP_DIR
-	fi
-else
-	echo "ERROR: can not find skyeye executable.You should put your skyeye distribution on $SKYEYE_DIR"
+#If skyeye has installed with by defult, we will use the installed skyeye to test 
+#testsuite. If not, we need compile and install skyeye in skyeye source path at first.
+if test -e ${SKYEYE_OPT}/bin/skyeye ; then
+	SKYEYE_DIR=${SKYEYE_OPT}/bin
+	echo "We will use ${SKYEYE_DIR}/skyeye to run testsuite."
+elif test -e ${PREFIX_DIR}/bin/skyeye ; then
+	SKYEYE_DIR=${PREFIX_DIR}/bin
+	echo "We will use ${SKYEYE_DIR}/skyeye to run testsuite."
+elif test -e $SKYEYE_SOURCE ; then
+	cd $SKYEYE_SOURCE && ./configure --prefix=$SKYEYE_DIR;make lib;make; make install_lib; make install
+	echo "We will use ${SKYEYE_DIR}/skyeye to run testsuite."
+else	
+	echo "ERROR: can not find skyeye executable or source."
+	echo "Tips: Please confirm you have downloaded skyeye or installed \n      skyeye correctly. If so, read the README please."
 	exit -1
 fi
+
 if test -e linux ; then 
 	cd linux 
 	expect  ./auto_test $SKYEYE_DIR $test_report
