@@ -3,8 +3,9 @@
 
 #If you have not compile skyeye, you should set SKYEYE_SOURCE.
 SKYEYE_SOURCE="Delete me and fill your absolute path of skeye source here if you need."
-#If you configure skyeye with "--prefix" option, you should set PREFIX_DIR.
-PREFIX_DIR="Delete me and fill your absolute path of \"--prefix\" dir here if you need."
+
+#If you configure skyeye with "--prefix" option,you should execute the script with the absolute "prefix" path as the first parameter. For example,if you execute command "./configure --prefix=$HOME/skyeye" then you should execute command "./test_all.sh $HOME/skyeye".
+PREFIX_DIR=$1
 
 #Initialize some variables
 TOP_DIR=`pwd`

@@ -8,7 +8,7 @@ unofficial/: some testcase uploaded by other developers , not fully tested.
 
 * How to run all of them?
 1.If you configure skyeye by default, just run ./test_all.sh.
-2.If you configure skyeye with "--prefix" option, you need modify variable "PREFIX_DIR" in test_all.sh.
+2.If you configure skyeye with "--prefix" option,you should execute the script with the absolute "prefix" path as the first parameter. For example,if you execute command "./configure --prefix=$HOME/skyeye" then you should execute command "./test_all.sh $HOME/skyeye".
 3.If you have not compiled skyeye, you need modify variable "SKYEYE_SOURCE" in test_all.sh.
 
 The test_report_DATA_TIME should be generated after all the testcases are finished.
