@@ -1,0 +1,43 @@
+
+hello.elf:     file format elf32-tradlittlemips
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .Vtext        00000308  a0000000  bfc00000  00000080  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00003000  a0004000  a0004000  00000074  2**4
+                  ALLOC
+  2 .pdr          000000a0  00000000  00000000  00000388  2**2
+                  CONTENTS, READONLY
+  3 .debug_line   0000005c  00000000  00000000  00000428  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000060  00000000  00000000  00000484  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000014  00000000  00000000  000004e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_aranges 00000020  00000000  00000000  000004f8  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev.1 00000039  00000000  00000000  00000518  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_info.2 00000088  00000000  00000000  00000551  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line.3 0000003a  00000000  00000000  000005d9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  00000074  00000000  00000000  00000614  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000081  00000000  00000000  00000688  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_pubnames 00000040  00000000  00000000  00000709  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_aranges.4 00000020  00000000  00000000  00000749  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .comment      00000024  00000000  00000000  00000769  2**0
+                  CONTENTS, READONLY
+ 15 .debug_abbrev.5 0000006e  00000000  00000000  0000078d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 16 .debug_info.6 0000012f  00000000  00000000  000007fb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 17 .debug_line.7 00000056  00000000  00000000  0000092a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 18 .debug_aranges.8 00000020  00000000  00000000  00000980  2**0
+                  CONTENTS, READONLY, DEBUGGING

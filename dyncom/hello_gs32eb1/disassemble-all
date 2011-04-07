@@ -1,0 +1,637 @@
+
+hello.elf:     file format elf32-tradlittlemips
+
+Disassembly of section .Vtext:
+
+a0000000 <start>:
+a0000000:	0000d021 	move	k0,zero
+a0000004:	3c1da000 	lui	sp,0xa000
+a0000008:	27bd6fe8 	addiu	sp,sp,28648
+a000000c:	3c08a000 	lui	t0,0xa000
+a0000010:	03a8e825 	or	sp,sp,t0
+a0000014:	3c04b400 	lui	a0,0xb400
+a0000018:	3484010c 	ori	a0,a0,0x10c
+a000001c:	3c05b400 	lui	a1,0xb400
+a0000020:	34a50108 	ori	a1,a1,0x108
+a0000024:	2406028b 	li	a2,651
+a0000028:	ac860000 	sw	a2,0(a0)
+a000002c:	2406000f 	li	a2,15
+a0000030:	aca60000 	sw	a2,0(a1)
+a0000034:	3c1da000 	lui	sp,0xa000
+a0000038:	27bd6fe8 	addiu	sp,sp,28648
+a000003c:	00000000 	nop
+
+a0000040 <zbss>:
+a0000040:	3c02a000 	lui	v0,0xa000
+a0000044:	24424000 	addiu	v0,v0,16384
+a0000048:	3c03a000 	lui	v1,0xa000
+a000004c:	24634000 	addiu	v1,v1,16384
+a0000050:	3c01a000 	lui	at,0xa000
+a0000054:	00411025 	or	v0,v0,at
+a0000058:	3c01a000 	lui	at,0xa000
+a000005c:	00611825 	or	v1,v1,at
+a0000060:	ac400000 	sw	zero,0(v0)
+a0000064:	ac400004 	sw	zero,4(v0)
+a0000068:	ac400008 	sw	zero,8(v0)
+a000006c:	24420010 	addiu	v0,v0,16
+a0000070:	0043082b 	sltu	at,v0,v1
+a0000074:	1420fffa 	bnez	at,a0000060 <zbss+0x20>
+a0000078:	ac40fffc 	sw	zero,-4(v0)
+a000007c:	3c1da001 	lui	sp,0xa001
+a0000080:	27bdf800 	addiu	sp,sp,-2048
+a0000084:	3c08a000 	lui	t0,0xa000
+a0000088:	25080090 	addiu	t0,t0,144
+a000008c:	01000008 	jr	t0
+a0000090:	00000000 	nop
+a0000094:	00000000 	nop
+a0000098:	3c04a000 	lui	a0,0xa000
+a000009c:	248400d0 	addiu	a0,a0,208
+a00000a0:	0080f809 	jalr	a0
+a00000a4:	00000000 	nop
+a00000a8:	0000000d 	break
+a00000ac:	0000000d 	break
+a00000b0:	0411ffff 	bal	a00000b0 <zbss+0x70>
+a00000b4:	08000000 	j	a0000000 <start>
+a00000b8:	00000000 	nop
+
+a00000bc <__main>:
+a00000bc:	00000000 	nop
+a00000c0:	03e00008 	jr	ra
+a00000c4:	00000000 	nop
+	...
+
+a00000d0 <main>:
+a00000d0:	27bdffe8 	addiu	sp,sp,-24
+a00000d4:	afbf0014 	sw	ra,20(sp)
+a00000d8:	afbe0010 	sw	s8,16(sp)
+a00000dc:	03a0f021 	move	s8,sp
+a00000e0:	3c02a000 	lui	v0,0xa000
+a00000e4:	244402a0 	addiu	a0,v0,672
+a00000e8:	3c02a000 	lui	v0,0xa000
+a00000ec:	244201a0 	addiu	v0,v0,416
+a00000f0:	0040f809 	jalr	v0
+a00000f4:	00000000 	nop
+a00000f8:	00001021 	move	v0,zero
+a00000fc:	03c0e821 	move	sp,s8
+a0000100:	8fbf0014 	lw	ra,20(sp)
+a0000104:	8fbe0010 	lw	s8,16(sp)
+a0000108:	27bd0018 	addiu	sp,sp,24
+a000010c:	03e00008 	jr	ra
+a0000110:	00000000 	nop
+	...
+
+a0000120 <putch>:
+a0000120:	27bdfff0 	addiu	sp,sp,-16
+a0000124:	afbe0008 	sw	s8,8(sp)
+a0000128:	03a0f021 	move	s8,sp
+a000012c:	00801021 	move	v0,a0
+a0000130:	a3c20010 	sb	v0,16(s8)
+a0000134:	afc00000 	sw	zero,0(s8)
+a0000138:	3c02a000 	lui	v0,0xa000
+a000013c:	8c4202e0 	lw	v0,736(v0)
+a0000140:	24420004 	addiu	v0,v0,4
+a0000144:	90420000 	lbu	v0,0(v0)
+a0000148:	a3c20004 	sb	v0,4(s8)
+a000014c:	8fc20000 	lw	v0,0(s8)
+a0000150:	24420001 	addiu	v0,v0,1
+a0000154:	afc20000 	sw	v0,0(s8)
+a0000158:	8fc20000 	lw	v0,0(s8)
+a000015c:	28424000 	slti	v0,v0,16384
+a0000160:	10400006 	beqz	v0,a000017c <putch+0x5c>
+a0000164:	00000000 	nop
+a0000168:	93c20004 	lbu	v0,4(s8)
+a000016c:	30420001 	andi	v0,v0,0x1
+a0000170:	304200ff 	andi	v0,v0,0xff
+a0000174:	1440fff0 	bnez	v0,a0000138 <putch+0x18>
+a0000178:	00000000 	nop
+a000017c:	3c02a000 	lui	v0,0xa000
+a0000180:	8c4302e0 	lw	v1,736(v0)
+a0000184:	93c20010 	lbu	v0,16(s8)
+a0000188:	a0620000 	sb	v0,0(v1)
+a000018c:	03c0e821 	move	sp,s8
+a0000190:	8fbe0008 	lw	s8,8(sp)
+a0000194:	27bd0010 	addiu	sp,sp,16
+a0000198:	03e00008 	jr	ra
+a000019c:	00000000 	nop
+
+a00001a0 <puts>:
+a00001a0:	27bdffe0 	addiu	sp,sp,-32
+a00001a4:	afbf001c 	sw	ra,28(sp)
+a00001a8:	afbe0018 	sw	s8,24(sp)
+a00001ac:	03a0f021 	move	s8,sp
+a00001b0:	afc40020 	sw	a0,32(s8)
+a00001b4:	afc00010 	sw	zero,16(s8)
+a00001b8:	8fc20010 	lw	v0,16(s8)
+a00001bc:	00401821 	move	v1,v0
+a00001c0:	8fc20020 	lw	v0,32(s8)
+a00001c4:	00621021 	addu	v0,v1,v0
+a00001c8:	80430000 	lb	v1,0(v0)
+a00001cc:	2402000a 	li	v0,10
+a00001d0:	14620006 	bne	v1,v0,a00001ec <puts+0x4c>
+a00001d4:	00000000 	nop
+a00001d8:	2404000d 	li	a0,13
+a00001dc:	3c02a000 	lui	v0,0xa000
+a00001e0:	24420120 	addiu	v0,v0,288
+a00001e4:	0040f809 	jalr	v0
+a00001e8:	00000000 	nop
+a00001ec:	8fc20010 	lw	v0,16(s8)
+a00001f0:	00401821 	move	v1,v0
+a00001f4:	8fc20020 	lw	v0,32(s8)
+a00001f8:	00621021 	addu	v0,v1,v0
+a00001fc:	80420000 	lb	v0,0(v0)
+a0000200:	00402021 	move	a0,v0
+a0000204:	3c02a000 	lui	v0,0xa000
+a0000208:	24420120 	addiu	v0,v0,288
+a000020c:	0040f809 	jalr	v0
+a0000210:	00000000 	nop
+a0000214:	8fc20010 	lw	v0,16(s8)
+a0000218:	24420001 	addiu	v0,v0,1
+a000021c:	afc20010 	sw	v0,16(s8)
+a0000220:	8fc20010 	lw	v0,16(s8)
+a0000224:	00401821 	move	v1,v0
+a0000228:	8fc20020 	lw	v0,32(s8)
+a000022c:	00621021 	addu	v0,v1,v0
+a0000230:	80420000 	lb	v0,0(v0)
+a0000234:	10400003 	beqz	v0,a0000244 <puts+0xa4>
+a0000238:	00000000 	nop
+a000023c:	0800006e 	j	a00001b8 <puts+0x18>
+a0000240:	00000000 	nop
+a0000244:	2404000d 	li	a0,13
+a0000248:	3c02a000 	lui	v0,0xa000
+a000024c:	24420120 	addiu	v0,v0,288
+a0000250:	0040f809 	jalr	v0
+a0000254:	00000000 	nop
+a0000258:	2404000a 	li	a0,10
+a000025c:	3c02a000 	lui	v0,0xa000
+a0000260:	24420120 	addiu	v0,v0,288
+a0000264:	0040f809 	jalr	v0
+a0000268:	00000000 	nop
+a000026c:	03c0e821 	move	sp,s8
+a0000270:	8fbf001c 	lw	ra,28(sp)
+a0000274:	8fbe0018 	lw	s8,24(sp)
+a0000278:	27bd0020 	addiu	sp,sp,32
+a000027c:	03e00008 	jr	ra
+a0000280:	00000000 	nop
+	...
+
+a0000290 <__CTOR_LIST__>:
+	...
+
+a0000298 <__CTOR_END__>:
+	...
+
+a00002a0 <__DTOR_END__>:
+a00002a0:	6968540a 	0x6968540a
+a00002a4:	73692073 	0x73692073
+a00002a8:	796b5320 	0x796b5320
+a00002ac:	20657965 	addi	a1,v1,31077
+a00002b0:	756d6953 	jalx	a5b5a54c <__SP_INIT+0x5b4ad4c>
+a00002b4:	6f74616c 	0x6f74616c
+a00002b8:	6f662072 	0x6f662072
+a00002bc:	4f472072 	c3	0x1472072
+a00002c0:	4e4f5344 	c3	0x4f5344
+a00002c4:	2e2e2e20 	sltiu	t6,s1,11808
+a00002c8:	0909090a 	j	a4242428 <__SP_INIT+0x4232c28>
+a00002cc:	48090909 	0x48090909
+a00002d0:	6f6c6c65 	0x6f6c6c65
+a00002d4:	6f77202c 	0x6f77202c
+a00002d8:	21646c72 	addi	a0,t3,27762
+a00002dc:	0000000a 	0xa
+
+a00002e0 <com1>:
+a00002e0:	b4000100 	0xb4000100
+	...
+a00002f0:	a400017e 	sh	zero,382(zero)
+	...
+Disassembly of section .bss:
+
+a0004000 <_ebss>:
+	...
+Disassembly of section .pdr:
+
+00000000 <.pdr>:
+   0:	a0000000 	sb	zero,0(zero)
+	...
+  20:	a00000bc 	sb	zero,188(zero)
+	...
+  40:	a00000d0 	sb	zero,208(zero)
+  44:	c0000000 	ll	zero,0(zero)
+  48:	fffffffc 	sdc3	$31,-4(ra)
+	...
+  54:	00000018 	mult	zero,zero
+  58:	0000001e 	0x1e
+  5c:	0000001f 	0x1f
+  60:	a0000120 	sb	zero,288(zero)
+  64:	40000000 	mfc0	zero,$0
+  68:	fffffff8 	sdc3	$31,-8(ra)
+	...
+  74:	00000010 	mfhi	zero
+  78:	0000001e 	0x1e
+  7c:	0000001f 	0x1f
+  80:	a00001a0 	sb	zero,416(zero)
+  84:	c0000000 	ll	zero,0(zero)
+  88:	fffffffc 	sdc3	$31,-4(ra)
+	...
+  94:	00000020 	add	zero,zero,zero
+  98:	0000001e 	0x1e
+  9c:	0000001f 	0x1f
+Disassembly of section .debug_line:
+
+00000000 <.debug_line>:
+   0:	00000058 	0x58
+   4:	001d0002 	srl	zero,sp,0x0
+   8:	01010000 	0x1010000
+   c:	000d0efb 	0xd0efb
+  10:	01010101 	0x1010101
+  14:	01000000 	0x1000000
+  18:	00010000 	sll	zero,at,0x0
+  1c:	30747263 	andi	s4,v1,0x7263
+  20:	0000532e 	0x532e
+  24:	00000000 	nop
+  28:	00000205 	0x205
+  2c:	2003a000 	addi	v1,zero,-24576
+  30:	4b835101 	c2	0x1835101
+  34:	4b848350 	c2	0x1848350
+  38:	83524b4b 	lb	s2,19275(k0)
+  3c:	834a0c03 	lb	t2,3075(k0)
+  40:	4b858383 	c2	0x1858383
+  44:	834b4b4b 	lb	t3,19275(k0)
+  48:	4b838350 	c2	0x1838350
+  4c:	4b834b4f 	c2	0x1834b4f
+  50:	4b4c4b4e 	c2	0x14c4b4e
+  54:	024e514b 	0x24e514b
+  58:	01010008 	0x1010008
+Disassembly of section .debug_info:
+
+00000000 <.debug_info>:
+   0:	0000005c 	0x5c
+   4:	00000002 	srl	zero,zero,0x0
+   8:	01040000 	0x1040000
+   c:	00000000 	nop
+  10:	a0000000 	sb	zero,0(zero)
+  14:	a00000c8 	sb	zero,200(zero)
+  18:	30747263 	andi	s4,v1,0x7263
+  1c:	2f00532e 	sltiu	zero,t8,21294
+  20:	656d6f68 	0x656d6f68
+  24:	616b612f 	0x616b612f
+  28:	2f756465 	sltiu	s5,k1,25701
+  2c:	7370696d 	0x7370696d
+  30:	7365745f 	0x7365745f
+  34:	73616374 	0x73616374
+  38:	65682f65 	0x65682f65
+  3c:	776f6c6c 	jalx	dbdb1b0 <__DYNAMIC+0xdbdb1b0>
+  40:	2f64726f 	sltiu	a0,k1,29295
+  44:	6c6c6568 	0x6c6c6568
+  48:	73675f6f 	0x73675f6f
+  4c:	62653233 	0x62653233
+  50:	4e470031 	c3	0x470031
+  54:	53412055 	beql	k0,at,81ac <__DYNAMIC+0x81ac>
+  58:	312e3220 	andi	t6,t1,0x3220
+  5c:	80010037 	lb	at,55(zero)
+Disassembly of section .debug_abbrev:
+
+00000000 <.debug_abbrev>:
+   0:	10001101 	b	4408 <__DYNAMIC+0x4408>
+   4:	12011106 	beq	s0,at,4420 <__DYNAMIC+0x4420>
+   8:	1b080301 	0x1b080301
+   c:	13082508 	beq	t8,t0,9430 <__DYNAMIC+0x9430>
+  10:	00000005 	0x5
+Disassembly of section .debug_aranges:
+
+00000000 <.debug_aranges>:
+   0:	0000001c 	0x1c
+   4:	00000002 	srl	zero,zero,0x0
+   8:	00040000 	sll	zero,a0,0x0
+   c:	00000000 	nop
+  10:	a0000000 	sb	zero,0(zero)
+  14:	000000c8 	0xc8
+	...
+Disassembly of section .debug_abbrev.1:
+
+00000000 <.debug_abbrev.1>:
+   0:	10011101 	beq	zero,at,4408 <__DYNAMIC+0x4408>
+   4:	11011206 	beq	t0,at,4820 <__DYNAMIC+0x4820>
+   8:	13082501 	beq	t8,t0,9410 <__DYNAMIC+0x9410>
+   c:	1b08030b 	0x1b08030b
+  10:	02000008 	jr	s0
+  14:	0c3f002e 	jal	fc00b8 <__DYNAMIC+0xfc00b8>
+  18:	0b3a0803 	j	ce8200c <__DYNAMIC+0xce8200c>
+  1c:	0c270b3b 	jal	9c2cec <__DYNAMIC+0x9c2cec>
+  20:	01111349 	0x1111349
+  24:	40810112 	0x40810112
+  28:	00064006 	srlv	t0,a2,zero
+  2c:	00240300 	0x240300
+  30:	0b0b0803 	j	c2c200c <__DYNAMIC+0xc2c200c>
+  34:	00000b3e 	0xb3e
+	...
+Disassembly of section .debug_info.2:
+
+00000000 <.debug_info.2>:
+   0:	00000084 	0x84
+   4:	00000002 	srl	zero,zero,0x0
+   8:	01040000 	0x1040000
+   c:	00000000 	nop
+  10:	a0000114 	sb	zero,276(zero)
+  14:	a00000d0 	sb	zero,208(zero)
+  18:	20554e47 	addi	s5,v0,20039
+  1c:	2e342043 	sltiu	s4,s1,8259
+  20:	20322e31 	addi	s2,at,11825
+  24:	0100672d 	0x100672d
+  28:	6e69616d 	0x6e69616d
+  2c:	2f00632e 	sltiu	zero,t8,25390
+  30:	656d6f68 	0x656d6f68
+  34:	616b612f 	0x616b612f
+  38:	2f756465 	sltiu	s5,k1,25701
+  3c:	7370696d 	0x7370696d
+  40:	7365745f 	0x7365745f
+  44:	73616374 	0x73616374
+  48:	65682f65 	0x65682f65
+  4c:	776f6c6c 	jalx	dbdb1b0 <__DYNAMIC+0xdbdb1b0>
+  50:	2f64726f 	sltiu	a0,k1,29295
+  54:	6c6c6568 	0x6c6c6568
+  58:	73675f6f 	0x73675f6f
+  5c:	62653233 	0x62653233
+  60:	01020031 	tgeu	t0,v0
+  64:	6e69616d 	0x6e69616d
+  68:	010b0100 	0x10b0100
+  6c:	00000080 	sll	zero,zero,0x2
+  70:	a00000d0 	sb	zero,208(zero)
+  74:	a0000114 	sb	zero,276(zero)
+  78:	00000010 	mfhi	zero
+  7c:	00000000 	nop
+  80:	746e6903 	jalx	1b9a40c <__DYNAMIC+0x1b9a40c>
+  84:	00050400 	sll	zero,a1,0x10
+Disassembly of section .debug_line.3:
+
+00000000 <.debug_line.3>:
+   0:	00000036 	tne	zero,zero
+   4:	001d0002 	srl	zero,sp,0x0
+   8:	01010000 	0x1010000
+   c:	000d0efb 	0xd0efb
+  10:	01010101 	0x1010101
+  14:	01000000 	0x1000000
+  18:	00010000 	sll	zero,at,0x0
+  1c:	6e69616d 	0x6e69616d
+  20:	0000632e 	0x632e
+  24:	00000000 	nop
+  28:	00d00205 	0xd00205
+  2c:	0a03a000 	j	80e8000 <__DYNAMIC+0x80e8000>
+  30:	7608f301 	jalx	823cc04 <__DYNAMIC+0x823cc04>
+  34:	0018024b 	0x18024b
+  38:	Address 0x0000000000000038 is out of bounds.
+
+Disassembly of section .debug_frame:
+
+00000000 <.debug_frame>:
+   0:	0000000c 	syscall
+   4:	ffffffff 	sdc3	$31,-1(ra)
+   8:	7c010001 	0x7c010001
+   c:	001d0c1f 	0x1d0c1f
+  10:	00000018 	mult	zero,zero
+  14:	00000000 	nop
+  18:	a00000d0 	sb	zero,208(zero)
+  1c:	00000044 	0x44
+  20:	48180e44 	0x48180e44
+  24:	019f029e 	0x19f029e
+  28:	181e0c44 	0x181e0c44
+  2c:	0000000c 	syscall
+  30:	ffffffff 	sdc3	$31,-1(ra)
+  34:	7c010001 	0x7c010001
+  38:	001d0c1f 	0x1d0c1f
+  3c:	00000018 	mult	zero,zero
+  40:	0000002c 	0x2c
+  44:	a0000120 	sb	zero,288(zero)
+  48:	00000080 	sll	zero,zero,0x2
+  4c:	44100e44 	0x44100e44
+  50:	0c44029e 	jal	1100a78 <__DYNAMIC+0x1100a78>
+  54:	0000101e 	0x101e
+  58:	00000018 	mult	zero,zero
+  5c:	0000002c 	0x2c
+  60:	a00001a0 	sb	zero,416(zero)
+  64:	000000e4 	0xe4
+  68:	48200e44 	0x48200e44
+  6c:	019f029e 	0x19f029e
+  70:	201e0c44 	addi	s8,zero,3140
+Disassembly of section .debug_loc:
+
+00000000 <.debug_loc>:
+   0:	00000000 	nop
+   4:	00000004 	sllv	zero,zero,zero
+   8:	046d0001 	0x46d0001
+   c:	10000000 	b	10 <__DYNAMIC+0x10>
+  10:	02000000 	0x2000000
+  14:	10188d00 	beq	zero,t8,fffe3418 <_srom+0x403e3418>
+  18:	44000000 	mfc1	zero,$f0
+  1c:	02000000 	0x2000000
+  20:	00188e00 	sll	s1,t8,0x18
+	...
+  2c:	04000000 	bltz	zero,30 <__DYNAMIC+0x30>
+  30:	01000000 	0x1000000
+  34:	00046d00 	sll	t5,a0,0x14
+  38:	000c0000 	sll	zero,t4,0x0
+  3c:	00020000 	sll	zero,v0,0x0
+  40:	000c108d 	break	0xc,0x42
+  44:	00800000 	0x800000
+  48:	00020000 	sll	zero,v0,0x0
+  4c:	0000108e 	0x108e
+  50:	00000000 	nop
+  54:	00800000 	0x800000
+  58:	00840000 	0x840000
+  5c:	00010000 	sll	zero,at,0x0
+  60:	0000846d 	0x846d
+  64:	00009000 	sll	s2,zero,0x0
+  68:	8d000200 	lw	zero,512(t0)
+  6c:	00009020 	add	s2,zero,zero
+  70:	00016400 	sll	t4,at,0x10
+  74:	8e000200 	lw	zero,512(s0)
+  78:	00000020 	add	zero,zero,zero
+  7c:	00000000 	nop
+	...
+Disassembly of section .debug_pubnames:
+
+00000000 <.debug_pubnames>:
+   0:	00000017 	0x17
+   4:	00000002 	srl	zero,zero,0x0
+   8:	00880000 	0x880000
+   c:	00620000 	0x620000
+  10:	616d0000 	0x616d0000
+  14:	00006e69 	0x6e69
+  18:	21000000 	addi	zero,t0,0
+  1c:	02000000 	0x2000000
+  20:	00000000 	nop
+  24:	00012f00 	sll	a1,at,0x1c
+  28:	00006400 	sll	t4,zero,0x10
+  2c:	74757000 	jalx	1d5c000 <__DYNAMIC+0x1d5c000>
+  30:	ce006863 	lwc3	$0,26723(s0)
+  34:	70000000 	0x70000000
+  38:	00737475 	0x737475
+  3c:	00000000 	nop
+Disassembly of section .debug_aranges.4:
+
+00000000 <.debug_aranges.4>:
+   0:	0000001c 	0x1c
+   4:	00000002 	srl	zero,zero,0x0
+   8:	00040000 	sll	zero,a0,0x0
+   c:	00000000 	nop
+  10:	a00000d0 	sb	zero,208(zero)
+  14:	00000044 	0x44
+	...
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	c0	0x1434700
+   4:	4728203a 	c1	0x128203a
+   8:	2029554e 	addi	t1,at,21838
+   c:	2e312e34 	sltiu	s1,s1,11828
+  10:	47000032 	c1	0x1000032
+  14:	203a4343 	addi	k0,at,17219
+  18:	554e4728 	bnel	t2,t6,11cbc <__DYNAMIC+0x11cbc>
+  1c:	2e342029 	sltiu	s4,s1,8233
+  20:	00322e31 	tgeu	at,s2,0xb8
+Disassembly of section .debug_abbrev.5:
+
+00000000 <.debug_abbrev.5>:
+   0:	10011101 	beq	zero,at,4408 <__DYNAMIC+0x4408>
+   4:	11011206 	beq	t0,at,4820 <__DYNAMIC+0x4820>
+   8:	13082501 	beq	t8,t0,9410 <__DYNAMIC+0x9410>
+   c:	1b08030b 	0x1b08030b
+  10:	02000008 	jr	s0
+  14:	1301012e 	beq	t8,at,4d0 <__DYNAMIC+0x4d0>
+  18:	08030c3f 	j	c30fc <__DYNAMIC+0xc30fc>
+  1c:	0b3b0b3a 	j	cec2ce8 <__DYNAMIC+0xcec2ce8>
+  20:	01110c27 	0x1110c27
+  24:	40810112 	0x40810112
+  28:	00064006 	srlv	t0,a2,zero
+  2c:	00050300 	sll	zero,a1,0xc
+  30:	0b3a0803 	j	ce8200c <__DYNAMIC+0xce8200c>
+  34:	13490b3b 	beq	k0,t1,2d24 <__DYNAMIC+0x2d24>
+  38:	00000a02 	srl	at,zero,0x8
+  3c:	03003404 	0x3003404
+  40:	3b0b3a08 	xori	t3,t8,0x3a08
+  44:	0213490b 	0x213490b
+  48:	0500000a 	bltz	t0,74 <__DYNAMIC+0x74>
+  4c:	13490026 	beq	k0,t1,e8 <__DYNAMIC+0xe8>
+  50:	24060000 	li	a2,0
+  54:	0b080300 	j	c200c00 <__DYNAMIC+0xc200c00>
+  58:	000b3e0b 	0xb3e0b
+  5c:	000f0700 	sll	zero,t7,0x1c
+  60:	13490b0b 	beq	k0,t1,2c90 <__DYNAMIC+0x2c90>
+  64:	35080000 	ori	t0,t0,0x0
+  68:	00134900 	sll	t1,s3,0x4
+	...
+Disassembly of section .debug_info.6:
+
+00000000 <.debug_info.6>:
+   0:	0000012b 	0x12b
+   4:	00000002 	srl	zero,zero,0x0
+   8:	01040000 	0x1040000
+   c:	00000000 	nop
+  10:	a0000284 	sb	zero,644(zero)
+  14:	a0000120 	sb	zero,288(zero)
+  18:	20554e47 	addi	s5,v0,20039
+  1c:	2e342043 	sltiu	s4,s1,8259
+  20:	20322e31 	addi	s2,at,11825
+  24:	0100672d 	0x100672d
+  28:	69726573 	0x69726573
+  2c:	632e6c61 	0x632e6c61
+  30:	6f682f00 	0x6f682f00
+  34:	612f656d 	0x612f656d
+  38:	6465616b 	0x6465616b
+  3c:	696d2f75 	0x696d2f75
+  40:	745f7370 	jalx	17dcdc0 <__DYNAMIC+0x17dcdc0>
+  44:	63747365 	0x63747365
+  48:	2f657361 	sltiu	a1,k1,29537
+  4c:	6c6c6568 	0x6c6c6568
+  50:	726f776f 	0x726f776f
+  54:	65682f64 	0x65682f64
+  58:	5f6f6c6c 	0x5f6f6c6c
+  5c:	32337367 	andi	s3,s1,0x7367
+  60:	00316265 	0x316265
+  64:	0000a902 	srl	s5,zero,0x4
+  68:	75700100 	jalx	5c00400 <__DYNAMIC+0x5c00400>
+  6c:	00686374 	teq	v1,t0,0x18d
+  70:	20011301 	addi	at,zero,4865
+  74:	a0a00001 	sb	zero,1(a1)
+  78:	3ca00001 	0x3ca00001
+  7c:	2b000000 	slti	zero,t8,0
+  80:	03000000 	0x3000000
+  84:	12010063 	beq	s0,at,214 <__DYNAMIC+0x214>
+  88:	000000a9 	0xa9
+  8c:	04009102 	bltz	zero,fffe4498 <_srom+0x403e4498>
+  90:	01006863 	0x1006863
+  94:	0000b614 	0xb614
+  98:	74910200 	jalx	2440800 <__DYNAMIC+0x2440800>
+  9c:	01006904 	0x1006904
+  a0:	0000c715 	0xc715
+  a4:	70910200 	0x70910200
+  a8:	00ae0500 	0xae0500
+  ac:	63060000 	0x63060000
+  b0:	00726168 	0x726168
+  b4:	75060601 	jalx	4181804 <__DYNAMIC+0x4181804>
+  b8:	6769736e 	0x6769736e
+  bc:	2064656e 	addi	a0,v1,25966
+  c0:	72616863 	0x72616863
+  c4:	06080100 	tgei	s0,256
+  c8:	00746e69 	0x746e69
+  cc:	06020504 	bltzl	s0,14e0 <__DYNAMIC+0x14e0>
+  d0:	01000001 	0x1000001
+  d4:	73747570 	0x73747570
+  d8:	01240100 	0x1240100
+  dc:	a00001a0 	sb	zero,416(zero)
+  e0:	a0000284 	sb	zero,644(zero)
+  e4:	00000058 	0x58
+  e8:	00000056 	0x56
+  ec:	00706303 	0x706303
+  f0:	01062301 	0x1062301
+  f4:	91020000 	lbu	v0,0(t0)
+  f8:	00690400 	0x690400
+  fc:	00c72501 	0xc72501
+ 100:	91020000 	lbu	v0,0(t0)
+ 104:	04070070 	0x4070070
+ 108:	000000a9 	0xa9
+ 10c:	6d6f6304 	0x6d6f6304
+ 110:	10010031 	beq	zero,at,1d8 <__DYNAMIC+0x1d8>
+ 114:	0000011e 	0x11e
+ 118:	02e00305 	0x2e00305
+ 11c:	2305a000 	addi	a1,t8,-24576
+ 120:	07000001 	bltz	t8,128 <__DYNAMIC+0x128>
+ 124:	00012904 	0x12904
+ 128:	00b60800 	0xb60800
+ 12c:	Address 0x000000000000012c is out of bounds.
+
+Disassembly of section .debug_line.7:
+
+00000000 <.debug_line.7>:
+   0:	00000052 	0x52
+   4:	001f0002 	srl	zero,ra,0x0
+   8:	01010000 	0x1010000
+   c:	000d0efb 	0xd0efb
+  10:	01010101 	0x1010101
+  14:	01000000 	0x1000000
+  18:	00010000 	sll	zero,at,0x0
+  1c:	69726573 	0x69726573
+  20:	632e6c61 	0x632e6c61
+  24:	00000000 	nop
+  28:	02050000 	0x2050000
+  2c:	a0000120 	sb	zero,288(zero)
+  30:	08011203 	j	4480c <__DYNAMIC+0x4480c>
+  34:	3d084d3e 	0x3d084d3e
+  38:	3e08f5bc 	0x3e08f5bc
+  3c:	083f08f3 	j	fc23cc <__DYNAMIC+0xfc23cc>
+  40:	e5084d3e 	swc1	$f8,19774(t0)
+  44:	28023f08 	slti	v0,zero,16136
+  48:	af08bc14 	sw	t0,-17388(t8)
+  4c:	083d0884 	j	f42210 <__DYNAMIC+0xf42210>
+  50:	0018023d 	0x18023d
+  54:	Address 0x0000000000000054 is out of bounds.
+
+Disassembly of section .debug_aranges.8:
+
+00000000 <.debug_aranges.8>:
+   0:	0000001c 	0x1c
+   4:	00000002 	srl	zero,zero,0x0
+   8:	00040000 	sll	zero,a0,0x0
+   c:	00000000 	nop
+  10:	a0000120 	sb	zero,288(zero)
+  14:	00000164 	0x164
+	...

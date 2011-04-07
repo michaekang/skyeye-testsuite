@@ -1,0 +1,173 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+stack               0x3000            crt0.o
+
+Discarded input sections
+
+ .reginfo       0x0000000000000000        0x0 main.o
+ .reginfo       0x0000000000000000        0x0 serial.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x00000000bfc00000 0x0000000000040000
+Vtext            0x00000000a0000000 0x0000000000004000
+Vdata            0x00000000a0004000 0x0000000000003800
+stack            0x00000000a0007800 0x0000000000000800
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                __DYNAMIC = 0x0
+
+.rom            0x00000000bfc00000        0x0
+                0x00000000bfc00000                _srom = .
+
+.Vtext          0x00000000a0000000      0x308 load address 0x00000000bfc00000
+                0x00000000a0000000                _stext = .
+ *(.text)
+ .text          0x00000000a0000000       0xd0 crt0.o
+                0x00000000a00000bc                __main
+                0x00000000a0000000                __start
+                0x00000000a0000000                start
+ .text          0x00000000a00000d0       0x50 main.o
+                0x00000000a00000d0                main
+ .text          0x00000000a0000120      0x170 serial.o
+                0x00000000a00001a0                puts
+                0x00000000a0000120                putch
+                0x00000000a0000290                . = ALIGN (0x4)
+ *(.eh_fram)
+                0x00000000a0000290                . = ALIGN (0x4)
+                0x00000000a0000290                __CTOR_LIST__ = .
+                0x00000000a0000290        0x4 LONG 0x0 (((__CTOR_END__ - __CTOR_LIST__) / 0x4) - 0x2)
+ *(.ctors)
+                0x00000000a0000294        0x4 LONG 0x0
+                0x00000000a0000298                __CTOR_END__ = .
+                0x00000000a0000298                __DTOR_LIST__ = .
+                0x00000000a0000298        0x4 LONG 0x0 (((__DTOR_END__ - __DTOR_LIST__) / 0x4) - 0x2)
+ *(.dtors)
+                0x00000000a000029c        0x4 LONG 0x0
+                0x00000000a00002a0                __DTOR_END__ = .
+ *(.rodata)
+ .rodata        0x00000000a00002a0       0x40 main.o
+ .rodata        0x00000000a00002e0       0x10 serial.o
+ *(.gcc_except_table)
+ *(.lit)
+                0x00000000a00002f0                . = ALIGN (0x4)
+ *(.reginfo)
+ .reginfo       0x00000000a00002f0       0x18 crt0.o
+                0x00000000a0000308                . = ALIGN (0x4)
+                0x00000000a0000308                _etext = .
+                0x00000000a0000310                _gp = ALIGN (0x10)
+ *(.got)
+
+.Vdata          0x00000000a0004000        0x0 load address 0x00000000bfc00308
+                0x00000000a0004000                _sdata = .
+ *(.data)
+ .data          0x00000000a0004000        0x0 crt0.o
+ .data          0x00000000a0004000        0x0 main.o
+ .data          0x00000000a0004000        0x0 serial.o
+ *(.sdata)
+                0x00000000a0004000                . = ALIGN (0x4)
+                0x00000000a0004000                _edata = .
+
+.bss            0x00000000a0004000     0x3000
+                0x00000000a0004000                _sbss = .
+ *(.bss)
+ .bss           0x00000000a0004000        0x0 crt0.o
+ .bss           0x00000000a0004000        0x0 main.o
+ .bss           0x00000000a0004000        0x0 serial.o
+ *(.sbss)
+ *(.common)
+ *(.scommon)
+                0x00000000a0004000                . = ALIGN (0x4)
+                0x00000000a0004000                _ebss = .
+ COMMON         0x00000000a0004000     0x3000 crt0.o
+                0x00000000a0004000                stack
+
+.stack          0x00000000a0007800        0x0
+                0x00000000a0007800                _sstack = .
+                0x00000000a000f800                __SP_INIT = (_sstack + 0x8000)
+                0x00000000b3000000                __vramBase = 0xb3000000
+                0x0000000084000000                __m_end = 0x84000000
+START GROUP
+LOAD crt0.o
+LOAD main.o
+LOAD serial.o
+LOAD /opt/mipseltools-gcc412-glibc261/bin/../mipsel-linux/lib/libc.a
+LOAD /opt/mipseltools-gcc412-glibc261/bin/../mipsel-linux/lib/libm.a
+END GROUP
+OUTPUT(hello.elf elf32-tradlittlemips)
+
+.pdr            0x0000000000000000       0xa0
+ .pdr           0x0000000000000000       0x40 crt0.o
+ .pdr           0x0000000000000040       0x20 main.o
+ .pdr           0x0000000000000060       0x40 serial.o
+
+.debug_line     0x0000000000000000       0x5c
+ .debug_line    0x0000000000000000       0x5c crt0.o
+
+.debug_info     0x0000000000000000       0x60
+ .debug_info    0x0000000000000000       0x60 crt0.o
+
+.debug_abbrev   0x0000000000000000       0x14
+ .debug_abbrev  0x0000000000000000       0x14 crt0.o
+
+.debug_aranges  0x0000000000000000       0x20
+ .debug_aranges
+                0x0000000000000000       0x20 crt0.o
+
+.mdebug.abi32   0x0000000000000000        0x0
+ .mdebug.abi32  0x0000000000000000        0x0 main.o
+ .mdebug.abi32  0x0000000000000000        0x0 serial.o
+
+.debug_abbrev.1
+                0x0000000000000000       0x39
+ .debug_abbrev  0x0000000000000000       0x39 main.o
+
+.debug_info.2   0x0000000000000000       0x88
+ .debug_info    0x0000000000000000       0x88 main.o
+
+.debug_line.3   0x0000000000000000       0x3a
+ .debug_line    0x0000000000000000       0x3a main.o
+
+.debug_frame    0x0000000000000000       0x74
+ .debug_frame   0x0000000000000000       0x2c main.o
+ .debug_frame   0x000000000000002c       0x48 serial.o
+
+.debug_loc      0x0000000000000000       0x81
+ .debug_loc     0x0000000000000000       0x2b main.o
+ .debug_loc     0x000000000000002b       0x56 serial.o
+
+.debug_pubnames
+                0x0000000000000000       0x40
+ .debug_pubnames
+                0x0000000000000000       0x1b main.o
+ .debug_pubnames
+                0x000000000000001b       0x25 serial.o
+
+.debug_aranges.4
+                0x0000000000000000       0x20
+ .debug_aranges
+                0x0000000000000000       0x20 main.o
+
+.comment        0x0000000000000000       0x24
+ .comment       0x0000000000000000       0x12 main.o
+ .comment       0x0000000000000012       0x12 serial.o
+
+.debug_abbrev.5
+                0x0000000000000000       0x6e
+ .debug_abbrev  0x0000000000000000       0x6e serial.o
+
+.debug_info.6   0x0000000000000000      0x12f
+ .debug_info    0x0000000000000000      0x12f serial.o
+
+.debug_line.7   0x0000000000000000       0x56
+ .debug_line    0x0000000000000000       0x56 serial.o
+
+.debug_aranges.8
+                0x0000000000000000       0x20
+ .debug_aranges
+                0x0000000000000000       0x20 serial.o

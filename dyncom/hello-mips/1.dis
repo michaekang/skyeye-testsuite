@@ -1,0 +1,66 @@
+
+hello-mips:     file format elf32-tradlittlemips
+
+Disassembly of section .text:
+
+004000b0 <__start>:
+  4000b0:	27bdffe8 	addiu	sp,sp,-24
+  4000b4:	afbf0014 	sw	ra,20(sp)
+  4000b8:	afbe0010 	sw	s8,16(sp)
+  4000bc:	03a0f021 	move	s8,sp
+  4000c0:	24040001 	li	a0,1
+  4000c4:	3c020040 	lui	v0,0x40
+  4000c8:	24450190 	addiu	a1,v0,400
+  4000cc:	2406000e 	li	a2,14
+  4000d0:	0c10003f 	jal	4000fc <write>
+  4000d4:	00000000 	nop
+  4000d8:	2404002a 	li	a0,42
+  4000dc:	0c100057 	jal	40015c <exit1>
+  4000e0:	00000000 	nop
+  4000e4:	03c0e821 	move	sp,s8
+  4000e8:	8fbf0014 	lw	ra,20(sp)
+  4000ec:	8fbe0010 	lw	s8,16(sp)
+  4000f0:	27bd0018 	addiu	sp,sp,24
+  4000f4:	03e00008 	jr	ra
+  4000f8:	00000000 	nop
+
+004000fc <write>:
+  4000fc:	27bdfff0 	addiu	sp,sp,-16
+  400100:	afbe0008 	sw	s8,8(sp)
+  400104:	03a0f021 	move	s8,sp
+  400108:	afc40010 	sw	a0,16(s8)
+  40010c:	afc50014 	sw	a1,20(s8)
+  400110:	afc60018 	sw	a2,24(s8)
+  400114:	8fc20010 	lw	v0,16(s8)
+  400118:	00000000 	nop
+  40011c:	00402021 	move	a0,v0
+  400120:	8fc20014 	lw	v0,20(s8)
+  400124:	00000000 	nop
+  400128:	00402821 	move	a1,v0
+  40012c:	8fc20018 	lw	v0,24(s8)
+  400130:	00000000 	nop
+  400134:	00403021 	move	a2,v0
+  400138:	24020fa4 	li	v0,4004
+  40013c:	0000000c 	syscall
+  400140:	00401821 	move	v1,v0
+  400144:	afc30000 	sw	v1,0(s8)
+  400148:	8fc20000 	lw	v0,0(s8)
+  40014c:	03c0e821 	move	sp,s8
+  400150:	8fbe0008 	lw	s8,8(sp)
+  400154:	03e00008 	jr	ra
+  400158:	27bd0010 	addiu	sp,sp,16
+
+0040015c <exit1>:
+  40015c:	27bdfff8 	addiu	sp,sp,-8
+  400160:	afbe0000 	sw	s8,0(sp)
+  400164:	03a0f021 	move	s8,sp
+  400168:	afc40008 	sw	a0,8(s8)
+  40016c:	8fc20008 	lw	v0,8(s8)
+  400170:	00000000 	nop
+  400174:	00402021 	move	a0,v0
+  400178:	24020fa1 	li	v0,4001
+  40017c:	0000000c 	syscall
+  400180:	03c0e821 	move	sp,s8
+  400184:	8fbe0000 	lw	s8,0(sp)
+  400188:	03e00008 	jr	ra
+  40018c:	27bd0008 	addiu	sp,sp,8
