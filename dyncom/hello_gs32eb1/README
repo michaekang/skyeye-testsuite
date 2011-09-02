@@ -1,0 +1,23 @@
+Author:Tian Na
+
+file list:
+.
+|-- Makefile
+|-- README
+|-- crt0.S
+|-- include
+|   |-- mips
+|   |   |-- cpu.h
+|   |   |-- mips.h
+|   |   |-- prid.h
+|   |   |-- r4kc0.h
+|   |   `-- r4ktlb.h
+|   `-- reg.h
+|-- linker.lcf
+|-- main.c
+`-- serial.c
+	
+Compilation:$ make
+
+You can run 
+	skyeye -e hello.elf

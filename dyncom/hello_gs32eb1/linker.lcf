@@ -1,0 +1,103 @@
+/* OUTPUT_ARCH(GODSON-I) */
+/* OUTPUT(*.elf) */
+
+/* Search directory for input files */
+SEARCH_DIR(.)
+
+/* No dynamic libraries */
+__DYNAMIC  =  0;
+
+ENTRY(start)
+
+
+MEMORY
+{
+       rom   :   org = 0xBFC00000, len = 0x40000
+       Vtext :   org = 0xA0000000, len = 0x4000
+       Vdata :   org = 0xA0004000, len = 0x3800
+       stack :   org = 0xA0007800, len = 0x800
+}
+
+SECTIONS
+{
+  .rom :
+  {
+    _srom = .;
+  } > rom
+  
+  .Vtext : AT ( ADDR(.rom))
+  {
+    _stext = .;
+    *(.text)
+    . = ALIGN(0x4);
+    *(.eh_fram)
+    . = ALIGN(0x4);
+     __CTOR_LIST__ = .;
+    LONG((__CTOR_END__ - __CTOR_LIST__) / 4 - 2)
+    *(.ctors)
+    LONG(0)
+    __CTOR_END__ = .;
+    __DTOR_LIST__ = .;
+    LONG((__DTOR_END__ - __DTOR_LIST__) / 4 - 2)
+    *(.dtors)
+     LONG(0)
+    __DTOR_END__ = .;
+    *(.rodata)
+    *(.gcc_except_table) 
+    *(.lit)
+    . = ALIGN(0x4);
+    *(.reginfo)
+    . = ALIGN(0x4);
+    _etext = .;
+    _gp =  ALIGN(16);
+    *(.got)
+  } > Vtext
+
+/* This section should contain all initialized data. The relocation
+   address is in RAM, but it is loaded at the end of the text section
+   in ROM. It will be copied to RAM by crt0 initialization. */
+  .Vdata : AT ( ADDR(.rom) + SIZEOF(.Vtext) )
+  {
+    _sdata = .;
+    *(.data)
+    *(.sdata)
+    . = ALIGN(0x4);
+    _edata = .;
+  } > Vdata
+
+/* This section should contain all data which is uninitialized. crt0
+   initialization will clear this memory. */
+  .bss :
+  {
+    _sbss = . ;
+    *(.bss)
+    *(.sbss)
+    *(.common)
+    *(.scommon)
+    . =  ALIGN (0x4);
+    _ebss = .;
+  } > Vdata
+  
+  .stack :
+  {
+ 	_sstack = . ;
+  } > stack
+  
+  __SP_INIT = _sstack + 0x8000;
+  __vramBase = 0xb3000000;
+  __m_end = 0x84000000;
+
+/* 
+    |---------|
+    |  .text  |
+    |---------|_etext
+    |  .data  |
+    |---------|_edata
+    |  .bss   |
+    |---------|_ebss
+    |  .stack |
+    |---------|__SP_INIT
+    |  malloc |
+    |---------|__m_end
+*/
+}
