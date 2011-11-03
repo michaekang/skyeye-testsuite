@@ -48,8 +48,7 @@ foreach skyeye_element $skyeye_sh {
          	}
        	}
 	incr case_num
-#system "killall skyeye"
-	catch {system "pkill -9 -f skyeye_main.py"} result
+	system "killall skyeye"
   }
 }
 

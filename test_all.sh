@@ -17,10 +17,10 @@ test_report="${TOP_DIR}/test_report_${TIMESTAMP}"
 
 #If skyeye has installed with by defult, we will use the installed skyeye to test 
 #testsuite. If not, we need compile and install skyeye in skyeye source path at first.
-if test -e ${SKYEYE_OPT}/bin/skyeye_main.py ; then
+if test -e ${SKYEYE_OPT}/bin/skyeye ; then
 	SKYEYE_DIR=${SKYEYE_OPT}/bin
 	echo "We will use ${SKYEYE_DIR}/skyeye to run testsuite."
-elif test -e ${PREFIX_DIR}/bin/skyeye_main.py ; then
+elif test -e ${PREFIX_DIR}/bin/skyeye ; then
 	SKYEYE_DIR=${PREFIX_DIR}/bin
 	echo "We will use ${SKYEYE_DIR}/skyeye to run testsuite."
 elif test -e $SKYEYE_SOURCE ; then
