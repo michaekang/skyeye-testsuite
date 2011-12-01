@@ -6,6 +6,7 @@ SKYEYE_SOURCE="Delete me and fill your absolute path of skeye source here if you
 
 #If you configure skyeye with "--prefix" option,you should execute the script with the absolute "prefix" path as the first parameter. For example,if you execute command "./configure --prefix=$HOME/skyeye" then you should execute command "./test_all.sh $HOME/skyeye".
 PREFIX_DIR=$1
+ARG2=$2
 
 #Initialize some variables
 TOP_DIR=`pwd`
@@ -14,6 +15,17 @@ SKYEYE_OPT="/opt/skyeye"
 SKYEYE_DIR="${TOP_DIR}/${SKYEYE_DIR_NAME}/bin"
 TIMESTAMP=`date +%F_%0k_%0M`
 test_report="${TOP_DIR}/test_report_${TIMESTAMP}"
+OS=linux
+
+if [ $ARG2 ]
+then
+	if [ $ARG2 = "windows" ]
+	then
+		OS=windows
+	else
+		echo "args2 is wrong format"
+	fi
+fi
 
 #If skyeye has installed with by defult, we will use the installed skyeye to test 
 #testsuite. If not, we need compile and install skyeye in skyeye source path at first.
@@ -34,16 +46,16 @@ fi
 
 if test -e linux ; then 
 	cd linux 
-	expect  ./auto_test $SKYEYE_DIR $test_report
+	expect  ./auto_test $SKYEYE_DIR $test_report $OS
 	cd $TOP_DIR
 fi
 if test -e uClinux ; then
-        cd uClinux && expect ./auto_test $SKYEYE_DIR $test_report
+        cd uClinux && expect ./auto_test $SKYEYE_DIR $test_report $OS
 	cd $TOP_DIR
 else
 	echo "can not find uClinux directory for test."
 fi
 if test -e rtems ; then
-        cd rtems && expect ./auto_test $SKYEYE_DIR $test_report
+        cd rtems && expect ./auto_test $SKYEYE_DIR $test_report $OS
 	cd $TOP_DIR
 fi

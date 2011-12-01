@@ -14,6 +14,7 @@ puts "*********************************\r"
 #set skyeye_penv(PWD)
 set skyeye_dir [lindex $argv 0]
 set report_filename [lindex $argv 1]
+set os [lindex $argv 2]
 
 # add directory of all the test case
 set  path { csb337 edb7312 }
@@ -45,7 +46,14 @@ foreach skyeye_element $skyeye_sh {
          	}
        	}
 	incr case_num
-	system "killall skyeye"
+
+	if { $os == "windows"} {
+		puts "kill process in windows\n";
+		spawn taskkill /F /IM skyeye.exe
+	} else {
+		puts "kill process in linux\n";
+		system "killall skyeye"
+	}
   }
 }
 
