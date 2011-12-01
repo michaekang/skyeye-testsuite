@@ -29,11 +29,11 @@ fi
 
 #If skyeye has installed with by defult, we will use the installed skyeye to test 
 #testsuite. If not, we need compile and install skyeye in skyeye source path at first.
-if test -e ${SKYEYE_OPT}/bin/skyeye ; then
-	SKYEYE_DIR=${SKYEYE_OPT}/bin
-	echo "We will use ${SKYEYE_DIR}/skyeye to run testsuite."
-elif test -e ${PREFIX_DIR}/bin/skyeye ; then
+if test -e ${PREFIX_DIR}/bin/skyeye ; then
 	SKYEYE_DIR=${PREFIX_DIR}/bin
+	echo "We will use ${SKYEYE_DIR}/skyeye to run testsuite."
+elif test -e ${SKYEYE_OPT}/bin/skyeye ; then
+	SKYEYE_DIR=${SKYEYE_OPT}/bin
 	echo "We will use ${SKYEYE_DIR}/skyeye to run testsuite."
 elif test -e $SKYEYE_SOURCE ; then
 	cd $SKYEYE_SOURCE && ./configure --prefix=$SKYEYE_DIR;make lib;make; make install_lib; make install
