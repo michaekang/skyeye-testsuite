@@ -35,7 +35,6 @@ foreach skyeye_element $skyeye_sh {
   foreach element $path {
 	spawn sh $skyeye_element $element $skyeye_dir
 	expect {
-	# we think when appear "command shell"  , testcase is passed
 		"Hello World" {
 			puts $file "Case $case_num: $skyeye_element $element ...PASSED\n"
 			incr pass_num
