@@ -31,11 +31,11 @@ puts $file "               "
 puts $file "Env : [exec uname -a ]"
 
 #set  skyeye_sh { ./exec_skyeye.sh  ./exec_skyeye_dbct.sh }
-set  skyeye_sh { ./exec_skyeye.sh }
+set  skyeye_sh { exec_skyeye.sh }
 
 foreach skyeye_element $skyeye_sh {
   foreach element $path {
-	spawn $skyeye_element $element $skyeye_dir
+	spawn sh $skyeye_element $element $skyeye_dir
 	expect {
 	# we think when appear "command shell"  , testcase is passed
 		"shell" {
