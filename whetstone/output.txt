@@ -1,0 +1,14 @@
+ksh@linux-smmr:/opt/source/ksh_home/svn/skyeye/skyeye_git/skyeye_testsuite/whetstone> ../../tegra2/install/bin/skyeye -n -u -e whetstone.bin 
+SkyEye 1.3.4
+SkyEye is an Open Source project under GPL. All rights of different parts or modules are reserved by their author. Any modification or redistributions of SkyEye should not remove or modify the annoucement of SkyEye copyright. 
+Get more information about it, please visit the homepage http://www.skyeye.org.
+Type "help" to get command list. 
+ In new_s3c6410_lcd, attr=0x6a21a0
+main:103
+
+Loops: 1000, Iterations: 1, Duration: 562 sec.
+C Converted Double Precision Whetstones: 2d+02 KIPS
+In stop_all_thread, the thread 1 is set to stopped
+Destroy threads.
+Unload all modules.
+exit.
