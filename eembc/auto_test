@@ -1,0 +1,68 @@
+#!/usr/bin/expect
+#
+# Author: Michael Kang(blackfin.kang@gmail.com)
+# Purpose: autoTest all the testcases in the skyeye testsuite.
+#
+
+set TITLE "SkyEye Auto Test For Dynamic Compilation"
+
+
+puts "*********************************\r"
+puts "Start $TITLE\r"
+puts "*********************************\r"
+
+#set skyeye_penv(PWD)
+set skyeye_dir [lindex $argv 0]
+set report_filename [lindex $argv 1]
+set os [lindex $argv 2]
+
+# add directory of all the test case
+set  path {arm powerpc/ppc_consumer_autogo_1000}
+
+set timeout 300
+set case_num 1
+set failed_num 0
+set pass_num 0
+set passed 0
+set report_date [exec date +%F_%k_%M]
+# open a file as report
+set file [open $report_filename a]
+puts $file "                       SkyEye test report for dynamic compilation"
+puts $file "Date : [exec date]"
+puts $file "               "
+
+set  skyeye_sh { exec_skyeye.sh }
+
+foreach skyeye_element $skyeye_sh {
+  foreach element $path {
+	spawn sh $skyeye_element $element $skyeye_dir
+	expect {
+		"DONE" {
+			puts $file "Case $case_num: $skyeye_element eembc/$element ...PASSED\n"
+			incr pass_num
+			set passed 1
+		}
+	}
+	expect {
+		-re "real.*m.*s" {
+			puts $file "$expect_out(0,string)"
+		}
+	}
+
+	if { $passed == 0 } {
+		puts $file "Case $case_num: $skyeye_element eembc/$element ...FAILED\n"
+		incr failed_num
+	} else {
+		set passed 0
+	}
+	set passed 0
+	incr case_num
+  }
+}
+
+set total_num [expr $case_num-1]
+puts "                                                                        \r"
+puts  "Total $total_num , failed $failed_num , pass $pass_num "
+puts "\r$TITLE ............\r"
+# write to a txt file as report
+puts $file "Total $total_num , failed $failed_num , pass $pass_num "

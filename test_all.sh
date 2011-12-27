@@ -59,3 +59,8 @@ if test -e rtems ; then
         cd rtems && expect ./auto_test $SKYEYE_DIR $test_report $OS
 	cd $TOP_DIR
 fi
+
+if test -e eembc ; then
+	cd eembc && expect ./auto_test $SKYEYE_DIR $test_report $OS
+	cd $TOP_DIR
+fi
