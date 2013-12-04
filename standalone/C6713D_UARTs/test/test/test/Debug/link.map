@@ -1,0 +1,257 @@
+******************************************************************************
+               TMS320C6x Linker PC v7.4.2                      
+******************************************************************************
+>> Linked Wed Oct 16 13:29:08 2013
+
+OUTPUT FILE NAME:   <C:/Users/sky/workspace_v5_4/c6713d_testcase_v1/test/test/test/../../test/Debug/test.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00003a00
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  boot_load             00000000   00000400  00000120  000002e0  RWIX
+  ARAM                  00000400   00000400  0000026c  00000194  RWIX
+  IRAM                  00000800   0003f000  000032e0  0003bd20  RWIX
+  ORAM                  80000000   007fffff  00000643  007ff9bc  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.boot_load 
+*          0    00000000    00000120     
+                  00000000    00000120     myboot.obj (.boot_load)
+
+.vectors   0    00000400    00000260     
+                  00000400    00000260     VECTORS.obj (.vectors)
+
+.bss       0    00000660    0000000c     UNINITIALIZED
+                  00000660    0000000c     C67SPIM.obj (.bss)
+
+.stack     0    00000800    00002000     UNINITIALIZED
+                  00000800    00000008     rts6700.lib : boot.obj (.stack)
+                  00000808    00001ff8     --HOLE--
+
+.text      0    00002800    000012e0     
+                  00002800    00000720     SJA1000.obj (.text)
+                  00002f20    00000340     interrupt.obj (.text:retain)
+                  00003260    00000240     C67SPIM.obj (.text)
+                  000034a0    00000240     rts6700.lib : memcpy62.obj (.text:_memcpy)
+                  000036e0    00000100                 : autoinit.obj (.text:__auto_init)
+                  000037e0    000000e0                 : exit.obj (.text:_exit)
+                  000038c0    000000c0                 : cpy_tbl.obj (.text:_copy_in)
+                  00003980    00000080                 : cpp_init.obj (.text:___TI_cpp_init)
+                  00003a00    00000080                 : boot.obj (.text:_c_int00)
+                  00003a80    00000040                 : args_main.obj (.text:__args_main)
+                  00003ac0    00000020                 : exit.obj (.text:_abort)
+
+.data      0    80000000    00000000     UNINITIALIZED
+
+.far       0    80000000    000002c7     UNINITIALIZED
+                  80000000    00000200     common.obj (.far)
+                  80000200    00000070     C67SPIM.obj (.far)
+                  80000270    00000040     interrupt.obj (.far)
+                  800002b0    0000000c     rts6700.lib : exit.obj (.far)
+                  800002bc    0000000b     emif.obj (.far)
+
+.cinit     0    800002c8    000002c4     
+                  800002c8    00000208     common.obj (.cinit)
+                  800004d0    00000048     interrupt.obj (.cinit)
+                  80000518    0000002c     rts6700.lib : exit.obj (.cinit)
+                  80000544    00000004     --HOLE-- [fill = 0]
+                  80000548    0000001c     C67SPIM.obj (.cinit)
+                  80000564    00000004     --HOLE-- [fill = 0]
+                  80000568    0000001b     emif.obj (.cinit)
+                  80000583    00000005     --HOLE-- [fill = 0]
+                  80000588    00000004     (.pad.cinit) [fill = 0]
+
+.const     0    8000058c    000000b8     
+                  8000058c    000000b8     C67SPIM.obj (.const:.string)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000660   $bss
+00000660   .bss
+80000000   .data
+00002800   .text
+00003ac0   C$$EXIT
+80000000   _CRC_TABLE
+00000480   _INT4
+000004a0   _INT5
+00000420   _NMI
+00000400   _RESET
+00000440   _RESV1
+00000460   _RESV2
+00002d38   _Sja1k_CAN_Msg_Read
+00002b98   _Sja1k_CAN_Msg_Send
+00002828   _Sja1k_Chip_Init
+00002810   _Sja1k_Read_Byte
+00002800   _Sja1k_Write_Byte
+00002800   __STACK_END
+00002000   __STACK_SIZE
+00000001   __TI_args_main
+00003980   ___TI_cpp_init
+800002b8   ___TI_enable_exit_profile_output
+ffffffff   ___TI_pprof_out_hndl
+ffffffff   ___TI_prof_data_size
+ffffffff   ___TI_prof_data_start
+ffffffff   ___binit__
+00000660   ___bss__
+ffffffff   ___c_args__
+800002c8   ___cinit__
+80000000   ___data__
+80000000   ___edata__
+0000066c   ___end__
+00003ae0   ___etext__
+ffffffff   ___pinit__
+00002800   ___text__
+00003a80   __args_main
+000036e0   __auto_init
+800002b0   __cleanup_ptr
+800002b4   __dtors_ptr
+00000800   __stack
+00003ac0   _abort
+00000000   _boot
+00003a00   _c_int00
+80000238   _can1_rxd
+80000200   _can1_txd
+80000254   _can2_rxd
+8000021c   _can2_txd
+000038c0   _copy_in
+00000668   _delay
+800002bc   _erase_sequence
+000037e0   _exit
+00000665   _flash_flag
+00003260   _init_uart
+00002f20   _interrupt_can1_rxd_isr
+00003078   _interrupt_can2_rxd_isr
+000031d8   _interrupt_timer0_selftest_isr
+80000270   _isr_jump_table
+00000400   _istp
+00003344   _main
+000034a0   _memcpy
+800002c4   _program_sequence
+00000664   _sdram_flag
+00000660   _totalTime
+00003284   _uart0_putc
+00003298   _uart0_puts
+000032e4   _uart1_putc
+000032f8   _uart1_puts
+00000600   _unexp_int04
+00000608   _unexp_int05
+00000610   _unexp_int06
+00000618   _unexp_int07
+00000620   _unexp_int08
+00000628   _unexp_int09
+00000630   _unexp_int10
+00000638   _unexp_int11
+00000640   _unexp_int12
+00000648   _unexp_int13
+00000650   _unexp_int14
+00000658   _unexp_int15
+ffffffff   binit
+800002c8   cinit
+80000000   edata
+0000066c   end
+00003ae0   etext
+ffffffff   pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   _boot
+00000001   __TI_args_main
+00000400   _RESET
+00000400   _istp
+00000420   _NMI
+00000440   _RESV1
+00000460   _RESV2
+00000480   _INT4
+000004a0   _INT5
+00000600   _unexp_int04
+00000608   _unexp_int05
+00000610   _unexp_int06
+00000618   _unexp_int07
+00000620   _unexp_int08
+00000628   _unexp_int09
+00000630   _unexp_int10
+00000638   _unexp_int11
+00000640   _unexp_int12
+00000648   _unexp_int13
+00000650   _unexp_int14
+00000658   _unexp_int15
+00000660   $bss
+00000660   .bss
+00000660   ___bss__
+00000660   _totalTime
+00000664   _sdram_flag
+00000665   _flash_flag
+00000668   _delay
+0000066c   ___end__
+0000066c   end
+00000800   __stack
+00002000   __STACK_SIZE
+00002800   .text
+00002800   _Sja1k_Write_Byte
+00002800   __STACK_END
+00002800   ___text__
+00002810   _Sja1k_Read_Byte
+00002828   _Sja1k_Chip_Init
+00002b98   _Sja1k_CAN_Msg_Send
+00002d38   _Sja1k_CAN_Msg_Read
+00002f20   _interrupt_can1_rxd_isr
+00003078   _interrupt_can2_rxd_isr
+000031d8   _interrupt_timer0_selftest_isr
+00003260   _init_uart
+00003284   _uart0_putc
+00003298   _uart0_puts
+000032e4   _uart1_putc
+000032f8   _uart1_puts
+00003344   _main
+000034a0   _memcpy
+000036e0   __auto_init
+000037e0   _exit
+000038c0   _copy_in
+00003980   ___TI_cpp_init
+00003a00   _c_int00
+00003a80   __args_main
+00003ac0   C$$EXIT
+00003ac0   _abort
+00003ae0   ___etext__
+00003ae0   etext
+80000000   .data
+80000000   _CRC_TABLE
+80000000   ___data__
+80000000   ___edata__
+80000000   edata
+80000200   _can1_txd
+8000021c   _can2_txd
+80000238   _can1_rxd
+80000254   _can2_rxd
+80000270   _isr_jump_table
+800002b0   __cleanup_ptr
+800002b4   __dtors_ptr
+800002b8   ___TI_enable_exit_profile_output
+800002bc   _erase_sequence
+800002c4   _program_sequence
+800002c8   ___cinit__
+800002c8   cinit
+ffffffff   ___TI_pprof_out_hndl
+ffffffff   ___TI_prof_data_size
+ffffffff   ___TI_prof_data_start
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[85 symbols]

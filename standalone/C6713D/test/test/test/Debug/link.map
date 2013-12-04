@@ -1,0 +1,322 @@
+******************************************************************************
+               TMS320C6x Linker PC v7.4.2                      
+******************************************************************************
+>> Linked Fri Aug 30 10:46:34 2013
+
+OUTPUT FILE NAME:   <C:/Users/ksh/Downloads/test/test/test/../../test/Debug/test.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000034c0
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  boot_load             00000000   00000400  00000120  000002e0  RWIX
+  ARAM                  00000400   00000400  0000026c  00000194  RWIX
+  IRAM                  00000800   0003f000  00004da0  0003a260  RWIX
+  ORAM                  80000000   007fffff  0000066f  007ff990  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.boot_load 
+*          0    00000000    00000120     
+                  00000000    00000120     myboot.obj (.boot_load)
+
+.vectors   0    00000400    00000260     
+                  00000400    00000260     VECTORS.obj (.vectors)
+
+.bss       0    00000660    0000000c     UNINITIALIZED
+                  00000660    0000000c     C67SPIM.obj (.bss)
+
+.text      0    00000800    00002da0     
+                  00000800    00000a00     SJA1000.obj (.text)
+                  00001200    00000940     emif.obj (.text)
+                  00001b40    00000560     interrupt.obj (.text:retain)
+                  000020a0    000004a0     C67SPIM.obj (.text)
+                  00002540    00000420     CAN.obj (.text)
+                  00002960    000002a0     timer.obj (.text)
+                  00002c00    00000240     rts6700.lib : memcpy62.obj (.text:_memcpy)
+                  00002e40    000001c0     pll.obj (.text)
+                  00003000    00000100     rts6700.lib : autoinit.obj (.text:__auto_init)
+                  00003100    000000e0                 : exit.obj (.text:_exit)
+                  000031e0    000000e0     interrupt.obj (.text)
+                  000032c0    000000c0     rts6700.lib : divu.obj (.text:__divu)
+                  00003380    000000c0                 : cpy_tbl.obj (.text:_copy_in)
+                  00003440    00000080                 : cpp_init.obj (.text:___TI_cpp_init)
+                  000034c0    00000080                 : boot.obj (.text:_c_int00)
+                  00003540    00000040                 : args_main.obj (.text:__args_main)
+                  00003580    00000020                 : exit.obj (.text:_abort)
+
+.stack     0    000035a0    00002000     UNINITIALIZED
+                  000035a0    00000008     rts6700.lib : boot.obj (.stack)
+                  000035a8    00001ff8     --HOLE--
+
+.data      0    80000000    00000000     UNINITIALIZED
+
+.far       0    80000000    000002c7     UNINITIALIZED
+                  80000000    00000200     common.obj (.far)
+                  80000200    00000070     C67SPIM.obj (.far)
+                  80000270    00000040     interrupt.obj (.far)
+                  800002b0    0000000c     rts6700.lib : exit.obj (.far)
+                  800002bc    0000000b     emif.obj (.far)
+
+.cinit     0    800002c8    000002c4     
+                  800002c8    00000208     common.obj (.cinit)
+                  800004d0    00000048     interrupt.obj (.cinit)
+                  80000518    0000002c     rts6700.lib : exit.obj (.cinit)
+                  80000544    00000004     --HOLE-- [fill = 0]
+                  80000548    0000001c     C67SPIM.obj (.cinit)
+                  80000564    00000004     --HOLE-- [fill = 0]
+                  80000568    0000001b     emif.obj (.cinit)
+                  80000583    00000005     --HOLE-- [fill = 0]
+                  80000588    00000004     (.pad.cinit) [fill = 0]
+
+.const     0    8000058c    000000e4     
+                  8000058c    000000cc     C67SPIM.obj (.const:.string)
+                  80000658    00000018     interrupt.obj (.const:.string)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000660   $bss
+00000660   .bss
+80000000   .data
+00000800   .text
+00003580   C$$EXIT
+000027f0   _CAN_PackageTransmitCANMessages
+000027d8   _CAN_UnpackageReceiveCANFrame
+000026bc   _CAN_dispatch_receive_CANMessages
+00002730   _CAN_dispatch_transmit_CANMessages
+00002540   _CAN_init
+0000259c   _CAN_init_can_frame
+0000263c   _CAN_init_can_queue
+80000000   _CRC_TABLE
+00000480   _INT4
+000004a0   _INT5
+00000420   _NMI
+00000400   _RESET
+00000440   _RESV1
+00000460   _RESV2
+00000fcc   _Sja1k_CAN_Msg_Read
+00000db0   _Sja1k_CAN_Msg_Send
+00000888   _Sja1k_Chip_Init
+0000083c   _Sja1k_Read_Byte
+00000800   _Sja1k_Write_Byte
+000055a0   __STACK_END
+00002000   __STACK_SIZE
+00000001   __TI_args_main
+00003440   ___TI_cpp_init
+800002b8   ___TI_enable_exit_profile_output
+ffffffff   ___TI_pprof_out_hndl
+ffffffff   ___TI_prof_data_size
+ffffffff   ___TI_prof_data_start
+ffffffff   ___binit__
+00000660   ___bss__
+ffffffff   ___c_args__
+800002c8   ___cinit__
+80000000   ___data__
+80000000   ___edata__
+0000066c   ___end__
+000035a0   ___etext__
+ffffffff   ___pinit__
+00000800   ___text__
+00003540   __args_main
+00003000   __auto_init
+000032c0   __c6xabi_divu
+800002b0   __cleanup_ptr
+000032c0   __divu
+800002b4   __dtors_ptr
+000035a0   __stack
+00003580   _abort
+00000000   _boot
+000034c0   _c_int00
+80000238   _can1_rxd
+80000200   _can1_txd
+80000254   _can2_rxd
+8000021c   _can2_txd
+00003380   _copy_in
+00000668   _delay
+00001238   _emif_decvfg_int
+000014dc   _emif_flash_program_test
+000018b0   _emif_flash_programing_poll
+0000179c   _emif_flash_sector_erase
+00001610   _emif_flash_sector_erase_toggle
+00001200   _emif_ini
+00001ab4   _emif_lock_flash_erase
+00001af8   _emif_lock_flash_program
+00001254   _emif_sdram_setup
+000013c4   _emif_sdram_test_clear
+00001290   _emif_sdram_test_fill
+00001a30   _emif_unlock_flash_erase
+00001a84   _emif_unlock_flash_program
+0000197c   _emif_write_flash_in_16bits
+800002bc   _erase_sequence
+00003100   _exit
+00000665   _flash_flag
+000020a0   _init_uart
+00001b40   _interrupt_can1_rxd_isr
+00001d34   _interrupt_can2_rxd_isr
+0000323c   _interrupt_hook
+000031e0   _interrupt_initial
+00001f28   _interrupt_timer0_selftest_isr
+80000270   _isr_jump_table
+00000400   _istp
+00002170   _main
+00002c00   _memcpy
+00002e40   _pll_initial
+800002c4   _program_sequence
+00000664   _sdram_flag
+00002a50   _timer_counter_sub
+00002b00   _timer_delay
+000029e8   _timer_read_timer
+00002960   _timer_set_and_start_timer
+00002a1c   _timer_stop_timer
+00000660   _totalTime
+000020d0   _uart_putc
+00002108   _uart_puts
+00000600   _unexp_int04
+00000608   _unexp_int05
+00000610   _unexp_int06
+00000618   _unexp_int07
+00000620   _unexp_int08
+00000628   _unexp_int09
+00000630   _unexp_int10
+00000638   _unexp_int11
+00000640   _unexp_int12
+00000648   _unexp_int13
+00000650   _unexp_int14
+00000658   _unexp_int15
+ffffffff   binit
+800002c8   cinit
+80000000   edata
+0000066c   end
+000035a0   etext
+ffffffff   pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   _boot
+00000001   __TI_args_main
+00000400   _RESET
+00000400   _istp
+00000420   _NMI
+00000440   _RESV1
+00000460   _RESV2
+00000480   _INT4
+000004a0   _INT5
+00000600   _unexp_int04
+00000608   _unexp_int05
+00000610   _unexp_int06
+00000618   _unexp_int07
+00000620   _unexp_int08
+00000628   _unexp_int09
+00000630   _unexp_int10
+00000638   _unexp_int11
+00000640   _unexp_int12
+00000648   _unexp_int13
+00000650   _unexp_int14
+00000658   _unexp_int15
+00000660   $bss
+00000660   .bss
+00000660   ___bss__
+00000660   _totalTime
+00000664   _sdram_flag
+00000665   _flash_flag
+00000668   _delay
+0000066c   ___end__
+0000066c   end
+00000800   .text
+00000800   _Sja1k_Write_Byte
+00000800   ___text__
+0000083c   _Sja1k_Read_Byte
+00000888   _Sja1k_Chip_Init
+00000db0   _Sja1k_CAN_Msg_Send
+00000fcc   _Sja1k_CAN_Msg_Read
+00001200   _emif_ini
+00001238   _emif_decvfg_int
+00001254   _emif_sdram_setup
+00001290   _emif_sdram_test_fill
+000013c4   _emif_sdram_test_clear
+000014dc   _emif_flash_program_test
+00001610   _emif_flash_sector_erase_toggle
+0000179c   _emif_flash_sector_erase
+000018b0   _emif_flash_programing_poll
+0000197c   _emif_write_flash_in_16bits
+00001a30   _emif_unlock_flash_erase
+00001a84   _emif_unlock_flash_program
+00001ab4   _emif_lock_flash_erase
+00001af8   _emif_lock_flash_program
+00001b40   _interrupt_can1_rxd_isr
+00001d34   _interrupt_can2_rxd_isr
+00001f28   _interrupt_timer0_selftest_isr
+00002000   __STACK_SIZE
+000020a0   _init_uart
+000020d0   _uart_putc
+00002108   _uart_puts
+00002170   _main
+00002540   _CAN_init
+0000259c   _CAN_init_can_frame
+0000263c   _CAN_init_can_queue
+000026bc   _CAN_dispatch_receive_CANMessages
+00002730   _CAN_dispatch_transmit_CANMessages
+000027d8   _CAN_UnpackageReceiveCANFrame
+000027f0   _CAN_PackageTransmitCANMessages
+00002960   _timer_set_and_start_timer
+000029e8   _timer_read_timer
+00002a1c   _timer_stop_timer
+00002a50   _timer_counter_sub
+00002b00   _timer_delay
+00002c00   _memcpy
+00002e40   _pll_initial
+00003000   __auto_init
+00003100   _exit
+000031e0   _interrupt_initial
+0000323c   _interrupt_hook
+000032c0   __c6xabi_divu
+000032c0   __divu
+00003380   _copy_in
+00003440   ___TI_cpp_init
+000034c0   _c_int00
+00003540   __args_main
+00003580   C$$EXIT
+00003580   _abort
+000035a0   ___etext__
+000035a0   __stack
+000035a0   etext
+000055a0   __STACK_END
+80000000   .data
+80000000   _CRC_TABLE
+80000000   ___data__
+80000000   ___edata__
+80000000   edata
+80000200   _can1_txd
+8000021c   _can2_txd
+80000238   _can1_rxd
+80000254   _can2_rxd
+80000270   _isr_jump_table
+800002b0   __cleanup_ptr
+800002b4   __dtors_ptr
+800002b8   ___TI_enable_exit_profile_output
+800002bc   _erase_sequence
+800002c4   _program_sequence
+800002c8   ___cinit__
+800002c8   cinit
+ffffffff   ___TI_pprof_out_hndl
+ffffffff   ___TI_prof_data_size
+ffffffff   ___TI_prof_data_start
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[114 symbols]

@@ -1,0 +1,309 @@
+******************************************************************************
+               TMS320C6x Linker PC v7.4.2                      
+******************************************************************************
+>> Linked Tue Oct 15 20:23:35 2013
+
+OUTPUT FILE NAME:   <C:/SkyEye/1.0/home/tsinghua/C6713_elf/test/test/test/../../test/Debug/test.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000037e0
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  boot_load             00000000   00000400  00000000  00000400  RWIX
+  ARAM                  00000400   00000400  00000028  000003d8  RWIX
+  IRAM                  00000800   0003f000  00005100  00039f00  RWIX
+  ORAM                  80000000   007fffff  000005a3  007ffa5c  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000400    00000400    00000020   00000020    r-x
+  00000400    00000400    00000020   00000020    r-x .vectors
+00000420    00000420    00000008   00000008    rw-
+  00000420    00000420    00000008   00000008    rw- .neardata
+00000800    00000800    00003100   00003100    r-x
+  00000800    00000800    00003100   00003100    r-x .text
+00003900    00003900    00002000   00000000    rw-
+  00003900    00003900    00002000   00000000    rw- .stack
+80000000    80000000    00000217   00000217    rw-
+  80000000    80000000    00000217   00000217    rw- .fardata
+80000218    80000218    000000d4   000000d4    r--
+  80000218    80000218    000000d4   000000d4    r-- .const
+800002ec    800002ec    00000070   00000000    rw-
+  800002ec    800002ec    00000070   00000000    rw- .far
+8000035c    8000035c    00000248   00000248    r--
+  8000035c    8000035c    00000248   00000248    r-- .cinit
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.vectors   0    00000400    00000020     
+                  00000400    00000020     VECTORS.obj (.vectors)
+
+.neardata 
+*          0    00000420    00000008     
+                  00000420    00000008     C67SPIM.obj (.neardata)
+
+.bss       0    00000428    00000000     UNINITIALIZED
+
+.rodata    0    00000428    00000000     UNINITIALIZED
+
+.text      0    00000800    00003100     
+                  00000800    00000a00     SJA1000.obj (.text)
+                  00001200    00000940     emif.obj (.text)
+                  00001b40    00000560     interrupt.obj (.text:retain)
+                  000020a0    00000420     CAN.obj (.text)
+                  000024c0    000003e0     C67SPIM.obj (.text)
+                  000028a0    000002a0     timer.obj (.text)
+                  00002b40    00000240     rts6700_elf.lib : memcpy62.obj (.text:memcpy)
+                  00002d80    000001e0                     : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
+                  00002f60    000001c0     pll.obj (.text)
+                  00003120    00000160     rts6700_elf.lib : autoinit.obj (.text:_auto_init_elf)
+                  00003280    00000120                     : cpy_tbl.obj (.text:copy_in)
+                  000033a0    00000120                     : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  000034c0    00000100                     : tls.obj (.text:tls:init:__TI_tls_init)
+                  000035c0    000000e0                     : exit.obj (.text:exit)
+                  000036a0    000000c0                     : divu.obj (.text:__divu)
+                  00003760    00000080                     : cpp_init.obj (.text:__TI_cpp_init)
+                  000037e0    00000080                     : boot.obj (.text:_c_int00)
+                  00003860    00000040                     : args_main.obj (.text:_args_main)
+                  000038a0    00000020                     : exit.obj (.text:abort)
+                  000038c0    00000020                     : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  000038e0    00000020                     : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
+
+.stack     0    00003900    00002000     UNINITIALIZED
+                  00003900    00000008     rts6700_elf.lib : boot.obj (.stack)
+                  00003908    00001ff8     --HOLE--
+
+.fardata   0    80000000    00000217     
+                  80000000    00000200     common.obj (.fardata:CRC_TABLE)
+                  80000200    0000000c     rts6700_elf.lib : exit.obj (.fardata)
+                  8000020c    00000006     emif.obj (.fardata:erase_sequence)
+                  80000212    00000002     --HOLE--
+                  80000214    00000003     emif.obj (.fardata:program_sequence)
+
+.const     0    80000218    000000d4     
+                  80000218    000000bc     C67SPIM.obj (.const:.string)
+                  800002d4    00000018     interrupt.obj (.const:.string)
+
+.far       0    800002ec    00000070     UNINITIALIZED
+                  800002ec    00000070     C67SPIM.obj (.far)
+
+.cinit     0    8000035c    00000248     
+                  8000035c    0000020e     (.cinit..fardata.load) [load image, compression = rle]
+                  8000056a    00000002     --HOLE-- [fill = 0]
+                  8000056c    0000000c     (.cinit..neardata.load) [load image, compression = rle]
+                  80000578    0000000c     (__TI_handler_table)
+                  80000584    00000008     (.cinit..far.load) [load image, compression = zero_init]
+                  8000058c    00000018     (__TI_cinit_table)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 8000058c records: 3, size/record: 8, table size: 24
+	.fardata: load addr=8000035c, load size=0000020e bytes, run addr=80000000, run size=00000217 bytes, compression=rle
+	.neardata: load addr=8000056c, load size=0000000c bytes, run addr=00000420, run size=00000008 bytes, compression=rle
+	.far: load addr=80000584, load size=00000008 bytes, run addr=800002ec, run size=00000070 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 80000578 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_zero_init
+	index: 1, handler: __TI_decompress_rle24
+	index: 2, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+000038a0   C$$EXIT
+00002350   CAN_PackageTransmitCANMessages
+00002338   CAN_UnpackageReceiveCANFrame
+0000221c   CAN_dispatch_receive_CANMessages
+00002290   CAN_dispatch_transmit_CANMessages
+000020a0   CAN_init
+000020fc   CAN_init_can_frame
+0000219c   CAN_init_can_queue
+80000000   CRC_TABLE
+00000fcc   Sja1k_CAN_Msg_Read
+00000db0   Sja1k_CAN_Msg_Send
+00000888   Sja1k_Chip_Init
+0000083c   Sja1k_Read_Byte
+00000800   Sja1k_Write_Byte
+00000400   _RESET
+8000058c   __TI_CINIT_Base
+800005a4   __TI_CINIT_Limit
+80000578   __TI_Handler_Table_Base
+80000584   __TI_Handler_Table_Limit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+00005900   __TI_STACK_END
+00002000   __TI_STACK_SIZE
+00000420   __TI_STATIC_BASE
+UNDEFED    __TI_TLS_INIT_Base
+UNDEFED    __TI_TLS_INIT_Limit
+00000001   __TI_args_main
+00003760   __TI_cpp_init
+000038c0   __TI_decompress_none
+000038e0   __TI_decompress_rle24
+80000208   __TI_enable_exit_profile_output
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+000034c0   __TI_tls_init
+000033a0   __TI_zero_init
+ffffffff   __binit__
+000036a0   __c6xabi_divu
+ffffffff   __c_args__
+000036a0   __divu
+00003860   _args_main
+00003120   _auto_init_elf
+000037e0   _c_int00
+80000200   _cleanup_ptr
+80000204   _dtors_ptr
+00000400   _istp
+00003900   _stack
+000038a0   abort
+ffffffff   binit
+80000324   can1_rxd
+800002ec   can1_txd
+80000340   can2_rxd
+80000308   can2_txd
+00003280   copy_in
+00000424   delay
+00001238   emif_decvfg_int
+000014dc   emif_flash_program_test
+000018b0   emif_flash_programing_poll
+0000179c   emif_flash_sector_erase
+00001610   emif_flash_sector_erase_toggle
+00001200   emif_ini
+00001ab4   emif_lock_flash_erase
+00001af8   emif_lock_flash_program
+00001254   emif_sdram_setup
+000013c4   emif_sdram_test_clear
+00001290   emif_sdram_test_fill
+00001a30   emif_unlock_flash_erase
+00001a84   emif_unlock_flash_program
+0000197c   emif_write_flash_in_16bits
+8000020c   erase_sequence
+000035c0   exit
+000024c0   init_uart
+00001b40   interrupt_can1_rxd_isr
+00001d34   interrupt_can2_rxd_isr
+00001f28   interrupt_timer0_selftest_isr
+00002580   main
+00002b40   memcpy
+00002f60   pll_initial
+80000214   program_sequence
+00002990   timer_counter_sub
+00002a40   timer_delay
+00002928   timer_read_timer
+000028a0   timer_set_and_start_timer
+0000295c   timer_stop_timer
+00000420   totalTime
+000024e8   uart_putc
+00002518   uart_puts
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000001   __TI_args_main
+00000400   _RESET
+00000400   _istp
+00000420   __TI_STATIC_BASE
+00000420   totalTime
+00000424   delay
+00000800   Sja1k_Write_Byte
+0000083c   Sja1k_Read_Byte
+00000888   Sja1k_Chip_Init
+00000db0   Sja1k_CAN_Msg_Send
+00000fcc   Sja1k_CAN_Msg_Read
+00001200   emif_ini
+00001238   emif_decvfg_int
+00001254   emif_sdram_setup
+00001290   emif_sdram_test_fill
+000013c4   emif_sdram_test_clear
+000014dc   emif_flash_program_test
+00001610   emif_flash_sector_erase_toggle
+0000179c   emif_flash_sector_erase
+000018b0   emif_flash_programing_poll
+0000197c   emif_write_flash_in_16bits
+00001a30   emif_unlock_flash_erase
+00001a84   emif_unlock_flash_program
+00001ab4   emif_lock_flash_erase
+00001af8   emif_lock_flash_program
+00001b40   interrupt_can1_rxd_isr
+00001d34   interrupt_can2_rxd_isr
+00001f28   interrupt_timer0_selftest_isr
+00002000   __TI_STACK_SIZE
+000020a0   CAN_init
+000020fc   CAN_init_can_frame
+0000219c   CAN_init_can_queue
+0000221c   CAN_dispatch_receive_CANMessages
+00002290   CAN_dispatch_transmit_CANMessages
+00002338   CAN_UnpackageReceiveCANFrame
+00002350   CAN_PackageTransmitCANMessages
+000024c0   init_uart
+000024e8   uart_putc
+00002518   uart_puts
+00002580   main
+000028a0   timer_set_and_start_timer
+00002928   timer_read_timer
+0000295c   timer_stop_timer
+00002990   timer_counter_sub
+00002a40   timer_delay
+00002b40   memcpy
+00002f60   pll_initial
+00003120   _auto_init_elf
+00003280   copy_in
+000033a0   __TI_zero_init
+000034c0   __TI_tls_init
+000035c0   exit
+000036a0   __c6xabi_divu
+000036a0   __divu
+00003760   __TI_cpp_init
+000037e0   _c_int00
+00003860   _args_main
+000038a0   C$$EXIT
+000038a0   abort
+000038c0   __TI_decompress_none
+000038e0   __TI_decompress_rle24
+00003900   _stack
+00005900   __TI_STACK_END
+80000000   CRC_TABLE
+80000200   _cleanup_ptr
+80000204   _dtors_ptr
+80000208   __TI_enable_exit_profile_output
+8000020c   erase_sequence
+80000214   program_sequence
+800002ec   can1_txd
+80000308   can2_txd
+80000324   can1_rxd
+80000340   can2_rxd
+80000578   __TI_Handler_Table_Base
+80000584   __TI_Handler_Table_Limit
+8000058c   __TI_CINIT_Base
+800005a4   __TI_CINIT_Limit
+ffffffff   __TI_pprof_out_hndl
+ffffffff   __TI_prof_data_size
+ffffffff   __TI_prof_data_start
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    __TI_INITARRAY_Base
+UNDEFED    __TI_INITARRAY_Limit
+UNDEFED    __TI_TLS_INIT_Base
+UNDEFED    __TI_TLS_INIT_Limit
+
+[87 symbols]

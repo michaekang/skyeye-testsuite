@@ -1,0 +1,310 @@
+******************************************************************************
+          TMS320C6x COFF Linker PC v6.0.8                      
+******************************************************************************
+>> Linked Wed Aug 21 09:59:44 2013
+
+OUTPUT FILE NAME:   <./Debug/test.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000037e0
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  boot_load             00000000   00000400  00000120  000002e0  RWIX
+  ARAM                  00000400   00000400  00000266  0000019a  RWIX
+  IRAM                  00000800   0003f000  000050e0  00039f20  RWIX
+  ORAM                  80000000   007fffff  0000a534  007f5acb  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.cio       0    80000000    00000000     UNINITIALIZED
+
+.const     0    80000000    00000000     UNINITIALIZED
+
+.data      0    80000000    00000000     UNINITIALIZED
+
+.switch    0    80000000    00000000     UNINITIALIZED
+
+.sysmem    0    80000000    00000000     UNINITIALIZED
+
+.tables    0    80000000    00000000     UNINITIALIZED
+
+.far       0    80000000    0000a260     UNINITIALIZED
+                  80000000    00009f80     C67SPIM.obj (.far)
+                  80009f80    00000200     common.obj (.far)
+                  8000a180    0000008c     rts6700.lib : exit.obj (.far)
+                  8000a20c    00000040     interrupt.obj (.far)
+                  8000a24c    0000000b     emif.obj (.far)
+                  8000a258    00000008     rts6700.lib : _lock.obj (.far)
+
+.cinit     0    8000a260    000002d4     
+                  8000a260    00000208     common.obj (.cinit)
+                  8000a468    00000048     interrupt.obj (.cinit)
+                  8000a4b0    0000002c     rts6700.lib : exit.obj (.cinit)
+                  8000a4dc    00000004     --HOLE-- [fill = 0]
+                  8000a4e0    0000001c                 : _lock.obj (.cinit)
+                  8000a4fc    00000004     --HOLE-- [fill = 0]
+                  8000a500    0000001b     emif.obj (.cinit)
+                  8000a51b    00000005     --HOLE-- [fill = 0]
+                  8000a520    0000000c     C67SPIM.obj (.cinit)
+                  8000a52c    00000008     --HOLE-- [fill = 0]
+
+.boot_load 
+*          0    00000000    00000120     
+                  00000000    00000120     myboot.obj (.boot_load)
+
+.vectors   0    00000400    00000260     
+                  00000400    00000260     VECTORS.obj (.vectors)
+
+.bss       0    00000660    00000006     UNINITIALIZED
+                  00000660    00000006     C67SPIM.obj (.bss)
+
+.text      0    00000800    000030e0     
+                  00000800    00000ac0     SJA1000.obj (.text)
+                  000012c0    00000ac0     emif.obj (.text)
+                  00001d80    000006a0     CAN.obj (.text)
+                  00002420    00000640     interrupt.obj (.text)
+                  00002a60    000002e0     timer.obj (.text)
+                  00002d40    00000240     rts6700.lib : memcpy62.obj (.text:_memcpy)
+                  00002f80    00000220     C67SPIM.obj (.text)
+                  000031a0    00000220     pll.obj (.text)
+                  000033c0    00000140     rts6700.lib : exit.obj (.text:_exit)
+                  00003500    00000120                 : autoinit.obj (.text:__auto_init)
+                  00003620    00000100     common.obj (.text)
+                  00003720    000000c0     rts6700.lib : divu.obj (.text:__divu)
+                  000037e0    00000080                 : boot.obj (.text:_c_int00)
+                  00003860    00000040                 : args_main.obj (.text:__args_main)
+                  000038a0    00000020                 : _lock.obj (.text:__nop)
+                  000038c0    00000020                 : exit.obj (.text:_abort)
+
+.stack     0    000038e0    00002000     UNINITIALIZED
+                  000038e0    00000008     rts6700.lib : boot.obj (.stack)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00000660   $bss
+00000660   .bss
+80000000   .data
+00000800   .text
+000038c0   C$$EXIT
+0000227c   _CAN_PackageTransmitCANMessages
+00002260   _CAN_UnpackageReceiveCANFrame
+00001f94   _CAN_dispatch_receive_CANMessages
+000020d4   _CAN_dispatch_transmit_CANMessages
+00001d80   _CAN_init
+00001e28   _CAN_init_can_frame
+00001ee8   _CAN_init_can_queue
+80009f80   _CRC_TABLE
+00000480   _INT4
+000004a0   _INT5
+00000420   _NMI
+00000400   _RESET
+00000440   _RESV1
+00000460   _RESV2
+00001050   _Sja1k_CAN_Msg_Read
+00000e08   _Sja1k_CAN_Msg_Send
+000008a4   _Sja1k_Chip_Init
+00000848   _Sja1k_Read_Byte
+00000800   _Sja1k_Write_Byte
+00002000   __STACK_SIZE
+ffffffff   ___binit__
+00000660   ___bss__
+ffffffff   ___c_args__
+8000a260   ___cinit__
+80000000   ___data__
+80000000   ___edata__
+00000666   ___end__
+000038e0   ___etext__
+ffffffff   ___pinit__
+00000800   ___text__
+00003860   __args_main
+00003500   __auto_init
+8000a204   __cleanup_ptr
+00003720   __divu
+8000a208   __dtors_ptr
+8000a258   __lock
+000038a0   __nop
+000038e0   __stack
+8000a25c   __unlock
+000038c0   _abort
+00000000   _boot
+000037e0   _c_int00
+80004fc0   _can1_rxd
+80000000   _can1_txd
+800077a0   _can2_rxd
+800027e0   _can2_txd
+00003620   _common_crc_calculate
+00001304   _emif_decvfg_int
+00001608   _emif_flash_program_test
+00001a74   _emif_flash_programing_poll
+00001928   _emif_flash_sector_erase
+00001764   _emif_flash_sector_erase_toggle
+000012c0   _emif_ini
+00001cd8   _emif_lock_flash_erase
+00001d38   _emif_lock_flash_program
+00001320   _emif_sdram_setup
+000014c4   _emif_sdram_test_clear
+00001364   _emif_sdram_test_fill
+00001c2c   _emif_unlock_flash_erase
+00001c98   _emif_unlock_flash_program
+00001b54   _emif_write_flash_in_16bits
+8000a24c   _erase_sequence
+000033c0   _exit
+00000665   _flash_flag
+00002504   _interrupt_can1_rxd_isr
+00002750   _interrupt_can2_rxd_isr
+00002484   _interrupt_hook
+00002420   _interrupt_initial
+0000299c   _interrupt_timer0_selftest_isr
+8000a20c   _isr_jump_table
+00000400   _istp
+00002f80   _main
+00002d40   _memcpy
+000031a0   _pll_initial
+8000a254   _program_sequence
+00000664   _sdram_flag
+00002b6c   _timer_counter_sub
+00002c2c   _timer_delay
+00002af8   _timer_read_timer
+00002a60   _timer_set_and_start_timer
+00002b30   _timer_stop_timer
+00000660   _totalTime
+00000600   _unexp_int04
+00000608   _unexp_int05
+00000610   _unexp_int06
+00000618   _unexp_int07
+00000620   _unexp_int08
+00000628   _unexp_int09
+00000630   _unexp_int10
+00000638   _unexp_int11
+00000640   _unexp_int12
+00000648   _unexp_int13
+00000650   _unexp_int14
+00000658   _unexp_int15
+ffffffff   binit
+8000a260   cinit
+80000000   edata
+00000666   end
+000038e0   etext
+ffffffff   pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   _boot
+00000400   _RESET
+00000400   _istp
+00000420   _NMI
+00000440   _RESV1
+00000460   _RESV2
+00000480   _INT4
+000004a0   _INT5
+00000600   _unexp_int04
+00000608   _unexp_int05
+00000610   _unexp_int06
+00000618   _unexp_int07
+00000620   _unexp_int08
+00000628   _unexp_int09
+00000630   _unexp_int10
+00000638   _unexp_int11
+00000640   _unexp_int12
+00000648   _unexp_int13
+00000650   _unexp_int14
+00000658   _unexp_int15
+00000660   $bss
+00000660   .bss
+00000660   ___bss__
+00000660   _totalTime
+00000664   _sdram_flag
+00000665   _flash_flag
+00000666   ___end__
+00000666   end
+00000800   .text
+00000800   _Sja1k_Write_Byte
+00000800   ___text__
+00000848   _Sja1k_Read_Byte
+000008a4   _Sja1k_Chip_Init
+00000e08   _Sja1k_CAN_Msg_Send
+00001050   _Sja1k_CAN_Msg_Read
+000012c0   _emif_ini
+00001304   _emif_decvfg_int
+00001320   _emif_sdram_setup
+00001364   _emif_sdram_test_fill
+000014c4   _emif_sdram_test_clear
+00001608   _emif_flash_program_test
+00001764   _emif_flash_sector_erase_toggle
+00001928   _emif_flash_sector_erase
+00001a74   _emif_flash_programing_poll
+00001b54   _emif_write_flash_in_16bits
+00001c2c   _emif_unlock_flash_erase
+00001c98   _emif_unlock_flash_program
+00001cd8   _emif_lock_flash_erase
+00001d38   _emif_lock_flash_program
+00001d80   _CAN_init
+00001e28   _CAN_init_can_frame
+00001ee8   _CAN_init_can_queue
+00001f94   _CAN_dispatch_receive_CANMessages
+00002000   __STACK_SIZE
+000020d4   _CAN_dispatch_transmit_CANMessages
+00002260   _CAN_UnpackageReceiveCANFrame
+0000227c   _CAN_PackageTransmitCANMessages
+00002420   _interrupt_initial
+00002484   _interrupt_hook
+00002504   _interrupt_can1_rxd_isr
+00002750   _interrupt_can2_rxd_isr
+0000299c   _interrupt_timer0_selftest_isr
+00002a60   _timer_set_and_start_timer
+00002af8   _timer_read_timer
+00002b30   _timer_stop_timer
+00002b6c   _timer_counter_sub
+00002c2c   _timer_delay
+00002d40   _memcpy
+00002f80   _main
+000031a0   _pll_initial
+000033c0   _exit
+00003500   __auto_init
+00003620   _common_crc_calculate
+00003720   __divu
+000037e0   _c_int00
+00003860   __args_main
+000038a0   __nop
+000038c0   C$$EXIT
+000038c0   _abort
+000038e0   ___etext__
+000038e0   __stack
+000038e0   etext
+80000000   .data
+80000000   ___data__
+80000000   ___edata__
+80000000   _can1_txd
+80000000   edata
+800027e0   _can2_txd
+80004fc0   _can1_rxd
+800077a0   _can2_rxd
+80009f80   _CRC_TABLE
+8000a204   __cleanup_ptr
+8000a208   __dtors_ptr
+8000a20c   _isr_jump_table
+8000a24c   _erase_sequence
+8000a254   _program_sequence
+8000a258   __lock
+8000a25c   __unlock
+8000a260   ___cinit__
+8000a260   cinit
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[105 symbols]
