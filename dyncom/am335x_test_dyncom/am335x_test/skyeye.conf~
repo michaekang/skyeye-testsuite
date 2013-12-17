@@ -1,0 +1,12 @@
+# skyeye config file for AM355X 
+arch:arm_dyncom
+cpu:cortex_a9
+mach:am335x
+# physical memory
+
+#load_addr:base=0x80000000, mask=0xFFFFFF
+#load_elf:filename = TestDemo.out
+load_elf:filename = TestDemo.out
+#load_file: filename=./initrd.img, start=0x50800000
+#-l0x50000000,0xffffff
+
